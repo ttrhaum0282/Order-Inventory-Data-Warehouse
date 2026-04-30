@@ -1,5 +1,6 @@
 import pyodbc
 import random
+import os
 import pandas as pd
 from faker import Faker
 from datetime import datetime, timedelta
@@ -169,6 +170,21 @@ def update_total_amount(conn, order_details_df: pd.DataFrame):
     conn.commit()
     print(f"Updated TotalAmount for {len(totals)} orders")
 
+def export_all(conn, fmt: str = "csv"):
+    tables = ["Suppliers", "Customers", "Products", "Inventory", "Orders", "OrderDetails"]
+    
+    # Tạo folder output cùng cấp với script
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    output_dir = os.path.join(base_dir, "output")
+    os.makedirs(output_dir, exist_ok=True)
+    
+    for table in tables:
+        df = pd.read_sql(f"SELECT * FROM {table}", conn)
+        if fmt == "csv":
+            df.to_csv(os.path.join(output_dir, f"{table}.csv"), index=False, encoding="utf-8-sig")
+        else:
+            df.to_json(os.path.join(output_dir, f"{table}.json"), orient="records", force_ascii=False, indent=2)
+        print(f"Exported {table}.{fmt} ({len(df)} rows)")
 
 # RUNNING PIPELINE
 def main():
@@ -231,6 +247,8 @@ def main():
     insert_df(conn, "OrderDetails", order_details[["OrderID", "ProductID", "Quantity", "Price"]])
 
     update_total_amount(conn, order_details)
+
+    export_all(conn, fmt="csv") 
 
     conn.close()
     print(f"\n[{datetime.now():%H:%M:%S}] Done.")
