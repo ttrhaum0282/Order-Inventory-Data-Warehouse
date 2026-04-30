@@ -16,16 +16,40 @@ CONN_STR = (
     f"Trusted_Connection=yes;"
 )
 
-N_SUPPLIERS = 20
-N_CUSTOMERS = 50
-N_PRODUCTS = 80
-N_ORDERS = 200
-N_ORDER_DETAILS = 400
+N_SUPPLIERS = 100
+N_CUSTOMERS = 500
+N_PRODUCTS = 300
+N_ORDERS = 2000
+N_ORDER_DETAILS = 5000
 
 
 def get_connection():
     return pyodbc.connect(CONN_STR)
 
+def truncate_all(conn):
+    cursor = conn.cursor()
+    # Xóa theo thứ tự FK
+    deletes = [
+        "DELETE FROM OrderDetails",
+        "DELETE FROM Orders",
+        "DELETE FROM Inventory",
+        "DELETE FROM Products",
+        "DELETE FROM Customers",
+        "DELETE FROM Suppliers",
+    ]
+    # Reset IDENTITY về 1
+    reseeds = [
+        "DBCC CHECKIDENT ('OrderDetails', RESEED, 0)",
+        "DBCC CHECKIDENT ('Orders', RESEED, 0)",
+        "DBCC CHECKIDENT ('Inventory', RESEED, 0)",
+        "DBCC CHECKIDENT ('Products', RESEED, 0)",
+        "DBCC CHECKIDENT ('Customers', RESEED, 0)",
+        "DBCC CHECKIDENT ('Suppliers', RESEED, 0)",
+    ]
+    for sql in deletes + reseeds:
+        cursor.execute(sql)
+    conn.commit()
+    print("Truncated & reset identity all tables\n")
 
 def insert_df(conn, table: str, df: pd.DataFrame):
     cursor = conn.cursor()
@@ -36,11 +60,9 @@ def insert_df(conn, table: str, df: pd.DataFrame):
     conn.commit()
     print(f"Inserted {len(df)} rows -> {table}")
 
+
 # GENERATING DATA
-
 # 1.Suppliers
-
-
 def gen_suppliers(n: int) -> pd.DataFrame:
     rows = []
     for i in range(1, n + 1):
@@ -52,9 +74,8 @@ def gen_suppliers(n: int) -> pd.DataFrame:
         })
     return pd.DataFrame(rows)
 
+
 # 2. Customers
-
-
 def gen_customers(n: int) -> pd.DataFrame:
     rows = []
     for i in range(1, n + 1):
@@ -69,8 +90,7 @@ def gen_customers(n: int) -> pd.DataFrame:
 
 
 # 3. Products (cần supplier_ids)
-CATEGORIES = ["Electronics", "Clothing",
-    "Food", "Furniture", "Books", "Sports"]
+CATEGORIES = ["Electronics", "Clothing", "Food", "Furniture", "Books", "Sports"]
 
 
 def gen_products(n: int, supplier_ids: list) -> pd.DataFrame:
@@ -85,8 +105,9 @@ def gen_products(n: int, supplier_ids: list) -> pd.DataFrame:
         })
     return pd.DataFrame(rows)
 
+
 # 4. Inventory (cần product_ids)
-def gen_inventory(product_ids: list) -> pd.DataFrame:
+def gen_inventory(n: int, product_ids: list) -> pd.DataFrame:
     rows = []
     for i, pid in enumerate(product_ids, start = 1):
         rows.append({
@@ -99,9 +120,8 @@ def gen_inventory(product_ids: list) -> pd.DataFrame:
         })
     return pd.DataFrame(rows)
 
+
 # 5. Order (cần customer_ids)
-
-
 def gen_order(n: int, customer_ids: list) -> pd.DataFrame:
     rows = []
     start = datetime(2023, 1, 1)
@@ -115,9 +135,8 @@ def gen_order(n: int, customer_ids: list) -> pd.DataFrame:
         })
     return pd.DataFrame(rows)
 
+
 # 6. OrderDetails (cần product_ids, order_ids, products dataframe để lấy giá)
-
-
 def gen_order_details(n: int, order_ids: list, products_df: pd.DataFrame):
     rows = []
     price_map = dict(zip(products_df['ProductID'], products_df["Price"]))
@@ -155,47 +174,66 @@ def update_total_amount(conn, order_details_df: pd.DataFrame):
 def main():
     print(f"\n[{datetime.now():%H:%M:%S}] Connecting SSMS...")
     conn = get_connection()
-    print(f"Connect Successfully!")
+    print(f"Connect Successfully!\n")
+
+    truncate_all(conn)
 
     print(f"Generating and inserting data...")
 
     suppliers = gen_suppliers(N_SUPPLIERS)
     customers = gen_customers(N_CUSTOMERS)
-    products = gen_products(N_PRODUCTS, suppliers["SupplierID"].tolist())
-    inventory = gen_inventory(products["ProductID"].tolist())
-    order = gen_order(N_ORDERS, customers["CustomerID"].tolist())
-    order_details = gen_order_details(N_ORDER_DETAILS,
-                                      order["OrderID"].tolist(),
-                                      products)
+    
+    # Insert Suppilers
+    insert_df(conn, "Suppliers", suppliers[["SupplierName", "Phone", "Address"]])
 
-    # Insert theo thứ tự
-    insert_df(conn, "Suppliers", suppliers[[
-              "SupplierName", "Phone", "Address"]])
+    # Đọc lại SupplierID thực từ Database
+    cursor = conn.cursor()
+    cursor.execute("SELECT SupplierID from Suppliers")
+    real_supplier_ids = [row[0] for row in cursor.fetchall()]
 
-    insert_df(conn, "Customers", customers[[
-              "CustomerName", "Phone", "Email", "Address"]])
+    # Tạo Products với SupplierID thực
+    products = gen_products(N_PRODUCTS, real_supplier_ids)
+    inventory = gen_inventory(N_PRODUCTS, products["ProductID"].tolist())
 
-    insert_df(conn, "Products", products[[
-              "ProductName", "SupplierID", "Price", "Category"]])
+    # Insert Customers
+    insert_df(conn, "Customers", customers[["CustomerName", "Phone", "Email", "Address"]])
 
-    insert_df(conn, "Inventory", inventory[[
-              "ProductID", "QuantityInStock", "LastUpdated"]])
+    # Đọc lại CustomerID thực từ database
+    cursor.execute("SELECT CustomerID from Customers")
+    real_customer_ids = [row[0] for row in cursor.fetchall()]
 
-    insert_df(conn, "Orders",
-              order[["CustomerID", "OrderDate", "TotalAmount"]])
+    # Tạo Orders với CustomerID thực
+    order = gen_order(N_ORDERS, real_customer_ids)
 
-    insert_df(conn, "OrderDetails", order_details[[
-              "OrderID", "ProductID", "Quantity", "Price"]])
+    # Insert Products
+    insert_df(conn, "Products", products[["ProductName", "SupplierID", "Price", "Category"]])
 
-    # Cập nhật TotalAmount
+    # Đọc lại ProductID thực từ Database trước khi tạo Inventory
+    cursor.execute("SELECT ProductID from Products")
+    real_product_ids = [row[0] for row in cursor.fetchall()]
+
+    # Tạo Inventory với ProductID thục từ database
+    inventory = gen_inventory(len(real_product_ids), real_product_ids)
+    insert_df(conn, "Inventory", inventory[["ProductID", "QuantityInStock", "LastUpdated"]])
+    insert_df(conn, "Orders", order[["CustomerID", "OrderDate", "TotalAmount"]])
+
+    
+    # Đọc lại OrderID và ProductID thực từ Database
+    cursor.execute("SELECT OrderID FROM Orders")
+    real_order_ids = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("SELECT ProductID, Price FROM Products")
+    rows = cursor.fetchall()
+    real_products_df = pd.DataFrame(list(map(tuple, rows)), columns=["ProductID", "Price"])
+
+    # Tạo OrderDetails dùng ID thực từ database
+    order_details = gen_order_details(N_ORDER_DETAILS, real_order_ids, real_products_df)
+    insert_df(conn, "OrderDetails", order_details[["OrderID", "ProductID", "Quantity", "Price"]])
+
     update_total_amount(conn, order_details)
 
     conn.close()
     print(f"\n[{datetime.now():%H:%M:%S}] Done.")
-    print("\nKiểm tra nhanh bằng SQL:")
-    print("  SELECT COUNT(*) FROM Suppliers")
-    print("  SELECT COUNT(*) FROM Orders")
-    print("  SELECT TOP 5 * FROM OrderDetails")
 
 if __name__ == "__main__":
     main()
