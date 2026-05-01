@@ -4,8 +4,47 @@ import os
 import pandas as pd
 from faker import Faker
 from datetime import datetime, timedelta
+from sqlalchemy import create_engine
 
 fake = Faker('vi_VN')
+
+# ── Sinh địa chỉ Việt Nam chuẩn ───────────────────────────────────────────
+_DUONG_PREFIX = ["Đường", "Phố", "Hẻm", "Ngõ", "Ngách"]
+_TEN_DUONG = [
+    "Lê Lợi", "Nguyễn Huệ", "Trần Phú", "Lý Thường Kiệt", "Đinh Tiên Hoàng",
+    "Nguyễn Trãi", "Hoàng Diệu", "Phan Chu Trinh", "Bà Triệu", "Hai Bà Trưng",
+    "Ngô Quyền", "Trần Hưng Đạo", "Võ Thị Sáu", "Cách Mạng Tháng 8", "Pasteur",
+    "Nam Kỳ Khởi Nghĩa", "Điện Biên Phủ", "Lê Duẩn", "Hùng Vương", "Lê Hồng Phong",
+    "Trường Chinh", "Giải Phóng", "Kim Mã", "Láng Hạ", "Nguyễn Chí Thanh",
+]
+_DON_VI = [
+    ("Phường", "Quận 1",       "TP. Hồ Chí Minh"),
+    ("Phường", "Quận 3",       "TP. Hồ Chí Minh"),
+    ("Phường", "Quận 7",       "TP. Hồ Chí Minh"),
+    ("Phường", "Bình Thạnh",   "TP. Hồ Chí Minh"),
+    ("Phường", "Tân Bình",     "TP. Hồ Chí Minh"),
+    ("Phường", "Hoàn Kiếm",    "Hà Nội"),
+    ("Phường", "Đống Đa",      "Hà Nội"),
+    ("Phường", "Cầu Giấy",     "Hà Nội"),
+    ("Phường", "Hai Bà Trưng", "Hà Nội"),
+    ("Phường", "Thanh Xuân",   "Hà Nội"),
+    ("Phường", "Hải Châu",     "Đà Nẵng"),
+    ("Phường", "Thanh Khê",    "Đà Nẵng"),
+    ("Phường", "Ninh Kiều",    "Cần Thơ"),
+    ("Xã",     "Hóc Môn",      "TP. Hồ Chí Minh"),
+    ("Xã",     "Củ Chi",       "TP. Hồ Chí Minh"),
+    ("Phường", "Lê Chân",      "Hải Phòng"),
+    ("Phường", "Ngô Quyền",    "Hải Phòng"),
+]
+
+def vn_address(max_len: int = 150) -> str:
+    so_nha = random.randint(1, 999)
+    duong  = f"{random.choice(_DUONG_PREFIX)} {random.choice(_TEN_DUONG)}"
+    don_vi, quan_huyen, tinh = random.choice(_DON_VI)
+    phuong_so = random.randint(1, 20)
+    addr = f"{so_nha} {duong}, {don_vi} {phuong_so}, {quan_huyen}, {tinh}"
+    return addr[:max_len]
+# ──────────────────────────────────────────────────────────────────────────
 
 SERVER = 'localhost'
 DATABASE = 'Order_Inventory'
@@ -26,6 +65,14 @@ N_ORDER_DETAILS = 5000
 
 def get_connection():
     return pyodbc.connect(CONN_STR)
+
+def get_engine():
+    conn_url = (
+        "mssql+pyodbc://localhost/Order_Inventory"
+        "?driver=ODBC+Driver+17+for+SQL+Server"
+        "&Trusted_Connection=yes"
+    )
+    return create_engine(conn_url)
 
 def truncate_all(conn):
     cursor = conn.cursor()
@@ -71,7 +118,7 @@ def gen_suppliers(n: int) -> pd.DataFrame:
             "SupplierID": i,
             "SupplierName": fake.company(),
             "Phone": fake.phone_number()[:20],
-            "Address": fake.address().replace("\n", ", ")[:200],
+            "Address": vn_address()[:200],
         })
     return pd.DataFrame(rows)
 
@@ -85,7 +132,7 @@ def gen_customers(n: int) -> pd.DataFrame:
             "CustomerName": fake.name(),
             "Phone": fake.phone_number()[:20],
             "Email": fake.email(),
-            "Address": fake.address().replace("\n", ",")[:200],
+            "Address": vn_address()[:200],
         })
     return pd.DataFrame(rows)
 
@@ -170,7 +217,9 @@ def update_total_amount(conn, order_details_df: pd.DataFrame):
     conn.commit()
     print(f"Updated TotalAmount for {len(totals)} orders")
 
-def export_all(conn, fmt: str = "csv"):
+# Tạo file csv
+def export_all(fmt: str = "csv"):
+    engine = get_engine()
     tables = ["Suppliers", "Customers", "Products", "Inventory", "Orders", "OrderDetails"]
     
     # Tạo folder output cùng cấp với script
@@ -179,7 +228,7 @@ def export_all(conn, fmt: str = "csv"):
     os.makedirs(output_dir, exist_ok=True)
     
     for table in tables:
-        df = pd.read_sql(f"SELECT * FROM {table}", conn)
+        df = pd.read_sql(f"SELECT * FROM {table}", engine)
         if fmt == "csv":
             df.to_csv(os.path.join(output_dir, f"{table}.csv"), index=False, encoding="utf-8-sig")
         else:
@@ -248,11 +297,10 @@ def main():
 
     update_total_amount(conn, order_details)
 
-    export_all(conn, fmt="csv") 
+    export_all(fmt="csv") 
 
     conn.close()
     print(f"\n[{datetime.now():%H:%M:%S}] Done.")
 
 if __name__ == "__main__":
     main()
-
