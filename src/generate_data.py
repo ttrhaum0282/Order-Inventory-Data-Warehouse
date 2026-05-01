@@ -45,6 +45,8 @@ def vn_address(max_len: int = 150) -> str:
     addr = f"{so_nha} {duong}, {don_vi} {phuong_so}, {quan_huyen}, {tinh}"
     return addr[:max_len]
 
+
+# Kết nối với SQL Server Management System
 SERVER = 'localhost'
 DATABASE = 'Order_Inventory'
 
