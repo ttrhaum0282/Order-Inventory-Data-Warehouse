@@ -26,6 +26,34 @@ def load_csv(name: str) -> pd.DataFrame:
     return pd.read_csv(path, encoding="utf-8-sig")
 
 
+# Map FK cần kiểm tra trước khi insert
+FK_MAP = {
+    "Orders":       [("CustomerID",    "Customers",    "CustomerID"),
+                     ("SupplierID",    "Suppliers",    "SupplierID")],
+    "OrderDetails": [("OrderID",       "Orders",       "OrderID"),
+                     ("ProductID",     "Products",     "ProductID")],
+    "Inventory":    [("ProductID",     "Products",     "ProductID")],
+    "SalesSummary": [("OrderDetailID", "OrderDetails", "OrderDetailID")],
+}
+
+
+def filter_fk(conn, table: str, df: pd.DataFrame) -> pd.DataFrame:
+    """Lọc bỏ các dòng vi phạm FK để tránh IntegrityError."""
+    rules = FK_MAP.get(table, [])
+    for fk_col, ref_table, ref_col in rules:
+        if fk_col not in df.columns:
+            continue
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT {ref_col} FROM {ref_table}")
+        valid_ids = {row[0] for row in cursor.fetchall()}
+        before = len(df)
+        df = df[df[fk_col].isin(valid_ids)]
+        dropped = before - len(df)
+        if dropped:
+            print(f"  [FK] Bỏ {dropped} dòng vi phạm {fk_col} → {ref_table}")
+    return df
+
+
 # Update
 def bulk_insert(conn, table: str, df: pd.DataFrame, chunk_size: int = 500):
     cursor = conn.cursor()
@@ -147,6 +175,7 @@ def main():
         df = load_csv(table)
         for col in df.select_dtypes(include=["category"]).columns:
             df[col] = df[col].astype(str)
+        df = filter_fk(conn, table, df)
         bulk_insert(conn, table, df)  # bulk_insert giờ không cần DELETE nữa
 
     conn.close()
