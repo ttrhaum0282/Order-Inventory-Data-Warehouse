@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 
 fake = Faker('vi_VN')
 
-# ── Sinh địa chỉ Việt Nam chuẩn ───────────────────────────────────────────
+# Sinh địa chỉ Việt Nam chuẩn 
 _DUONG_PREFIX = ["Đường", "Phố", "Hẻm", "Ngõ", "Ngách"]
 _TEN_DUONG = [
     "Lê Lợi", "Nguyễn Huệ", "Trần Phú", "Lý Thường Kiệt", "Đinh Tiên Hoàng",
@@ -44,7 +44,6 @@ def vn_address(max_len: int = 150) -> str:
     phuong_so = random.randint(1, 20)
     addr = f"{so_nha} {duong}, {don_vi} {phuong_so}, {quan_huyen}, {tinh}"
     return addr[:max_len]
-# ──────────────────────────────────────────────────────────────────────────
 
 SERVER = 'localhost'
 DATABASE = 'Order_Inventory'
