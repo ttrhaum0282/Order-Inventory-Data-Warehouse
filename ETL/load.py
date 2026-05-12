@@ -38,7 +38,7 @@ FK_MAP = {
 
 
 def filter_fk(conn, table: str, df: pd.DataFrame) -> pd.DataFrame:
-    """Lọc bỏ các dòng vi phạm FK để tránh IntegrityError."""
+    # Lọc bỏ các dòng vi phạm FK để tránh IntegrityError.
     rules = FK_MAP.get(table, [])
     for fk_col, ref_table, ref_col in rules:
         if fk_col not in df.columns:

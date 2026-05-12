@@ -41,11 +41,11 @@ def transform_customers(df: pd.DataFrame) -> pd.DataFrame:
     df["Phone"] = df["Phone"].str.replace(r"[\s\-\(\)]", "", regex=True)
     df["Phone"] = df["Phone"].str.replace(r"^\+84", "0", regex=True)
 
-    # Validate email
+    # Chuẩn hóa email
     email_mask = df["Email"].str.contains(r"^[\w\.-]+@[\w\.-]+\.\w+$", regex=True)
     df = df[email_mask].copy()
 
-    # Validate phone (chỉ giữ số hợp lệ 10 chữ số bắt đầu bằng 0)
+    # Chuẩn hóa số điện thoại (chỉ giữ số hợp lệ 10 chữ số bắt đầu bằng 0)
     phone_mask = df["Phone"].str.match(r"^0\d{9}$")
     df = df[phone_mask].copy()
 
