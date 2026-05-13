@@ -1,12 +1,72 @@
 import pyodbc
 import random
 import os
+import re
+import unicodedata
 import pandas as pd
 from faker import Faker
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine
 
 fake = Faker('vi_VN')
+
+# Tự sinh tên Việt đúng format "Họ Tên Đệm Tên", tách tên nam,nữ 
+_HO = [
+    'Nguyễn', 'Trần', 'Lê', 'Phạm', 'Hoàng', 'Huỳnh', 'Phan', 'Vũ', 'Võ', 'Đặng',
+    'Bùi', 'Đỗ', 'Hồ', 'Ngô', 'Dương', 'Lý', 'Mai', 'Trịnh', 'Đinh', 'Tô',
+]
+_NAM = {
+    'dem': ['Văn', 'Hữu', 'Đức', 'Minh', 'Quốc', 'Công', 'Bảo', 'Gia', 'Trung',
+            'Tấn', 'Quang', 'Phú', 'Tiến', 'Thành', 'Phước', 'Anh', 'Xuân', 'Hải'],
+    'ten': ['An', 'Bình', 'Dũng', 'Đạt', 'Giang', 'Hùng', 'Khoa', 'Khôi', 'Long',
+            'Nam', 'Phong', 'Phúc', 'Quân', 'Sang', 'Toàn', 'Tuấn', 'Tùng', 'Việt'],
+}
+_NU = {
+    'dem': ['Thị', 'Ngọc', 'Thu', 'Thúy', 'Thanh', 'Kim', 'Mỹ', 'Thùy', 'Bích',
+            'Thảo', 'Diễm', 'Phương', 'Ánh', 'Khánh', 'Linh', 'Tú', 'Vân', 'Hà'],
+    'ten': ['An', 'Chi', 'Dung', 'Giang', 'Hà', 'Hương', 'Lan', 'Linh', 'Mai',
+            'Nga', 'Ngọc', 'Nhung', 'Thảo', 'Thư', 'Trâm', 'Trinh', 'Uyên', 'Yến',
+            'Quỳnh', 'Trang', 'Phương', 'Tú', 'Vân'],
+}
+
+def vn_name(gender: str = None) -> tuple:
+    """Sinh tên Việt đúng chuẩn. Trả về (full_name, gender)"""
+    if gender is None:
+        gender = random.choice(['M', 'F'])
+    ho   = random.choice(_HO)
+    pool = _NAM if gender == 'M' else _NU
+    ten  = f"{random.choice(pool['dem'])} {random.choice(pool['ten'])}"
+    return f"{ho} {ten}", gender
+
+
+# Sinh email thực tế từ tên 
+def name_to_email(full_name: str, uid: int, domain: str = "example.com") -> str:
+    nfkd       = unicodedata.normalize("NFKD", full_name)
+    ascii_name = nfkd.encode("ascii", "ignore").decode("ascii").lower()
+    parts = ascii_name.split()          # ['nguyen', 'van', 'toan']
+    ho    = parts[0]                    # nguyen
+    dem   = parts[1] if len(parts) > 2 else ""   # van
+    ten   = parts[-1]                   # toan
+    birth = random.randint(1990, 2005)
+
+    style = random.randint(1, 4) # ở đây chỉ tạo cấu trúc mail phổ biến
+    if style == 1:
+        # trinhtram2005@example.com  →  họ + tên + năm sinh
+        local = f"{ho}{ten}{birth}"
+    elif style == 2:
+        # ttram2005@example.com  →  chữ đầu họ + tên + năm sinh
+        local = f"{ho[0]}{ten}{birth}"
+    elif style == 3:
+        # nguyenvantoan99@example.com  →  họ + tên đệm + tên + 2 số cuối năm
+        local = f"{ho}{dem}{ten}{str(birth)[-2:]}"
+    else:
+        # nvt2005@example.com  →  viết tắt chữ đầu + năm sinh
+        initials = ho[0] + (dem[0] if dem else "") + ten[0]
+        local = f"{initials}{birth}"
+
+    local = re.sub(r"[^a-z0-9]", "", local)   # chỉ giữ chữ và số, không dấu chấm
+    return f"{local}@{domain}"
+
 
 # Sinh địa chỉ Việt Nam chuẩn 
 _DUONG_PREFIX = ["Đường", "Phố", "Hẻm", "Ngõ", "Ngách"]
@@ -77,7 +137,6 @@ def get_engine():
 
 def truncate_all(conn):
     cursor = conn.cursor()
-    # Xóa theo thứ tự FK
     deletes = [
         "DELETE FROM OrderDetails",
         "DELETE FROM Orders",
@@ -86,7 +145,6 @@ def truncate_all(conn):
         "DELETE FROM Customers",
         "DELETE FROM Suppliers",
     ]
-    # Reset IDENTITY về 1
     reseeds = [
         "DBCC CHECKIDENT ('OrderDetails', RESEED, 0)",
         "DBCC CHECKIDENT ('Orders', RESEED, 0)",
@@ -111,7 +169,7 @@ def insert_df(conn, table: str, df: pd.DataFrame):
 
 
 # GENERATING DATA
-# 1.Suppliers
+# 1. Suppliers
 def gen_suppliers(n: int) -> pd.DataFrame:
     rows = []
     for i in range(1, n + 1):
@@ -124,23 +182,23 @@ def gen_suppliers(n: int) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-# 2. Customers
+# 2. Customers  ── ÁP DỤNG 2 FIX Ở ĐÂY ──
 def gen_customers(n: int) -> pd.DataFrame:
     rows = []
     for i in range(1, n + 1):
+        name, _gender = vn_name()                       # FIX 1: tên đúng chuẩn, tách nam/nữ
         rows.append({
-            "CustomerID": i,
-            "CustomerName": fake.name(),
-            "Phone": fake.phone_number()[:20],
-            "Email": fake.email(),
-            "Address": vn_address()[:200],
+            "CustomerID":   i,
+            "CustomerName": name,
+            "Phone":        fake.phone_number()[:20],
+            "Email":        name_to_email(name, i),        # FIX 2: email thực tế từ tên
+            "Address":      vn_address()[:200],
         })
     return pd.DataFrame(rows)
 
 
 # 3. Products (cần supplier_ids)
 CATEGORIES = ["Electronics", "Clothing", "Food", "Furniture", "Books", "Sports"]
-
 
 def gen_products(n: int, supplier_ids: list) -> pd.DataFrame:
     rows = []
@@ -158,7 +216,7 @@ def gen_products(n: int, supplier_ids: list) -> pd.DataFrame:
 # 4. Inventory (cần product_ids)
 def gen_inventory(n: int, product_ids: list) -> pd.DataFrame:
     rows = []
-    for i, pid in enumerate(product_ids, start = 1):
+    for i, pid in enumerate(product_ids, start=1):
         rows.append({
             "InventoryID": i,
             "ProductID": pid,
@@ -170,7 +228,7 @@ def gen_inventory(n: int, product_ids: list) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-# 5. Order (cần customer_ids)
+# 5. Orders (cần customer_ids)
 def gen_order(n: int, customer_ids: list) -> pd.DataFrame:
     rows = []
     start = datetime(2023, 1, 1)
@@ -180,7 +238,7 @@ def gen_order(n: int, customer_ids: list) -> pd.DataFrame:
             "OrderID": i,
             "CustomerID": random.choice(customer_ids),
             "OrderDate": order_date.strftime("%Y-%m-%d"),
-            "TotalAmount": 0  # cập nhật sau khi có OrderDetails
+            "TotalAmount": 0
         })
     return pd.DataFrame(rows)
 
@@ -204,10 +262,9 @@ def gen_order_details(n: int, order_ids: list, products_df: pd.DataFrame):
         })
     return pd.DataFrame(rows)
 
-# UPDATING TOTALAMOUNTS IN ORDER
 
+# UPDATING TOTALAMOUNTS IN ORDER
 def update_total_amount(conn, order_details_df: pd.DataFrame):
-    # Tính lại TotalAmount cho mỗi Order từ OrderDetails
     totals = order_details_df.groupby("OrderID")["Price"].sum().reset_index()
     cursor = conn.cursor()
     for _, row in totals.iterrows():
@@ -218,12 +275,12 @@ def update_total_amount(conn, order_details_df: pd.DataFrame):
     conn.commit()
     print(f"Updated TotalAmount for {len(totals)} orders")
 
+
 # Tạo file csv
 def export_all(fmt: str = "csv"):
     engine = get_engine()
     tables = ["Suppliers", "Customers", "Products", "Inventory", "Orders", "OrderDetails"]
     
-    # Tạo folder output cùng cấp với script
     base_dir = os.path.dirname(os.path.abspath(__file__))
     output_dir = os.path.join(base_dir, "output")
     os.makedirs(output_dir, exist_ok=True)
@@ -235,6 +292,7 @@ def export_all(fmt: str = "csv"):
         else:
             df.to_json(os.path.join(output_dir, f"{table}.json"), orient="records", force_ascii=False, indent=2)
         print(f"Exported {table}.{fmt} ({len(df)} rows)")
+
 
 # RUNNING PIPELINE
 def main():
@@ -249,42 +307,31 @@ def main():
     suppliers = gen_suppliers(N_SUPPLIERS)
     customers = gen_customers(N_CUSTOMERS)
     
-    # Insert Suppilers
     insert_df(conn, "Suppliers", suppliers[["SupplierName", "Phone", "Address"]])
 
-    # Đọc lại SupplierID thực từ Database
     cursor = conn.cursor()
     cursor.execute("SELECT SupplierID from Suppliers")
     real_supplier_ids = [row[0] for row in cursor.fetchall()]
 
-    # Tạo Products với SupplierID thực
-    products = gen_products(N_PRODUCTS, real_supplier_ids)
+    products  = gen_products(N_PRODUCTS, real_supplier_ids)
     inventory = gen_inventory(N_PRODUCTS, products["ProductID"].tolist())
 
-    # Insert Customers
     insert_df(conn, "Customers", customers[["CustomerName", "Phone", "Email", "Address"]])
 
-    # Đọc lại CustomerID thực từ database
     cursor.execute("SELECT CustomerID from Customers")
     real_customer_ids = [row[0] for row in cursor.fetchall()]
 
-    # Tạo Orders với CustomerID thực
     order = gen_order(N_ORDERS, real_customer_ids)
 
-    # Insert Products
     insert_df(conn, "Products", products[["ProductName", "SupplierID", "Price", "Category"]])
 
-    # Đọc lại ProductID thực từ Database trước khi tạo Inventory
     cursor.execute("SELECT ProductID from Products")
     real_product_ids = [row[0] for row in cursor.fetchall()]
 
-    # Tạo Inventory với ProductID thục từ database
     inventory = gen_inventory(len(real_product_ids), real_product_ids)
     insert_df(conn, "Inventory", inventory[["ProductID", "QuantityInStock", "LastUpdated"]])
     insert_df(conn, "Orders", order[["CustomerID", "OrderDate", "TotalAmount"]])
 
-    
-    # Đọc lại OrderID và ProductID thực từ Database
     cursor.execute("SELECT OrderID FROM Orders")
     real_order_ids = [row[0] for row in cursor.fetchall()]
 
@@ -292,16 +339,16 @@ def main():
     rows = cursor.fetchall()
     real_products_df = pd.DataFrame(list(map(tuple, rows)), columns=["ProductID", "Price"])
 
-    # Tạo OrderDetails dùng ID thực từ database
     order_details = gen_order_details(N_ORDER_DETAILS, real_order_ids, real_products_df)
     insert_df(conn, "OrderDetails", order_details[["OrderID", "ProductID", "Quantity", "Price"]])
 
     update_total_amount(conn, order_details)
 
-    export_all(fmt="csv") 
+    export_all(fmt="csv")
 
     conn.close()
     print(f"\n[{datetime.now():%H:%M:%S}] Done.")
+
 
 if __name__ == "__main__":
     main()
