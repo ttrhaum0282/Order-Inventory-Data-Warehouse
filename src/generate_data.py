@@ -7,6 +7,7 @@ import pandas as pd
 from faker import Faker
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine
+from unidecode import unidecode
 
 fake = Faker('vi_VN')
 
@@ -41,7 +42,9 @@ def vn_name(gender: str = None) -> tuple:
 
 # Sinh email thực tế từ tên 
 def name_to_email(full_name: str, uid: int, domain: str = "example.com") -> str:
-    nfkd       = unicodedata.normalize("NFKD", full_name)
+    full_name = full_name.replace('Đ', 'D').replace('đ', 'd')
+    
+    nfkd = unicodedata.normalize("NFKD", full_name)
     ascii_name = nfkd.encode("ascii", "ignore").decode("ascii").lower()
     parts = ascii_name.split()          # ['nguyen', 'van', 'toan']
     ho    = parts[0]                    # nguyen
