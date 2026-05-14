@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from datetime import datetime
+from unidecode import unidecode
 
 INPUT_DIR = r"D:\Projects_TTCS\src\output"   # CSV từ generate_data.py
 OUTPUT_DIR = "transformed"
@@ -63,19 +64,29 @@ def transform_customers(df: pd.DataFrame) -> pd.DataFrame:
 def transform_products(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop_duplicates(subset=["ProductID"])
 
-    # Loại sản phẩm giá âm hoặc null
-    df = df[df["Price"] > 0].copy()
+    price_numeric = (
+        df["Price"]
+        .astype(str)
+        .str.replace(r"[^\d]", "", regex=True)
+        .replace("", float("nan"))
+    )
+    price_numeric = pd.to_numeric(price_numeric, errors="coerce")
+
+    # Loại hàng giá âm hoặc null — nhưng giữ nguyên cột Price gốc
+    df = df[price_numeric > 0].copy()
+    price_numeric = price_numeric[price_numeric > 0]
 
     # Chuẩn hóa Category
-    valid_categories = ["Electronics", "Clothing", "Food", "Furniture", "Books", "Sports"]
-    df["Category"] = df["Category"].str.strip().str.title()
+    valid_categories = ["Điện tử", "Thời trang", "Thực phẩm", "Nội thất", "Sách", "Thể thao"]
+    df["Category"] = df["Category"].str.strip()
     df = df[df["Category"].isin(valid_categories)].copy()
+    price_numeric = price_numeric[df.index]
 
-    # Thêm cột phân khúc giá
+    # Thêm cột phân khúc giá (dùng giá trị số để tính, Price vẫn giữ định dạng gốc)
     df["PriceSegment"] = pd.cut(
-        df["Price"],
+        price_numeric,
         bins=[0, 100_000, 500_000, 2_000_000, float("inf")],
-        labels=["Budget", "Mid", "Premium", "Luxury"]
+        labels=["Bình dân", "Tầm trung", "Cao cấp", "Xa xỉ"]
     )
     return df
 
@@ -91,7 +102,7 @@ def transform_inventory(df: pd.DataFrame) -> pd.DataFrame:
     df["StockStatus"] = pd.cut(
         df["QuantityInStock"],
         bins=[-1, 0, 50, 200, float("inf")],
-        labels=["Out of Stock", "Low", "Normal", "High"]
+        labels=["Out of Stock", "Thấp", "Trung bình", "Cao"]
     )
     return df
 
@@ -101,23 +112,58 @@ def transform_orders(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop_duplicates(subset=["OrderID"])
     df["OrderDate"] = pd.to_datetime(df["OrderDate"], errors="coerce")
     df = df.dropna(subset=["OrderDate"])
-    df["TotalAmount"] = df["TotalAmount"].clip(lower=0)
+
+    # Chuẩn hóa TotalAmount về dạng số
+    df["TotalAmount"] = (
+        df["TotalAmount"]
+        .astype(str)
+        .str.replace(r"[^\d\.]", "", regex=True)
+        .replace("", float("nan"))
+    )
+    df["TotalAmount"] = pd.to_numeric(df["TotalAmount"], errors="coerce").fillna(0)
+    df["TotalAmount"] = df["TotalAmount"].clip(lower=0).astype(int)
 
     # Thêm chiều thời gian
     df["OrderYear"]    = df["OrderDate"].dt.year
     df["OrderMonth"]   = df["OrderDate"].dt.month
     df["OrderQuarter"] = df["OrderDate"].dt.quarter
-    df["OrderWeekday"] = df["OrderDate"].dt.day_name()
+    
+    weekday_map = {
+        "Monday":    "Thứ Hai",
+        "Tuesday":   "Thứ Ba",
+        "Wednesday": "Thứ Tư",
+        "Thursday":  "Thứ Năm",
+        "Friday":    "Thứ Sáu",
+        "Saturday":  "Thứ Bảy",
+        "Sunday":    "Chủ Nhật",
+    }
+    df["OrderWeekday"] = df["OrderDate"].dt.day_name().map(weekday_map)
     return df
 
 
 # 6. OrderDetails
 def transform_order_details(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop_duplicates(subset=["OrderDetailID"])
-    df = df[(df["Quantity"] > 0) & (df["Price"] >= 0)].copy()
 
-    # Tính unit price thực tế
-    df["UnitPrice"] = (df["Price"] / df["Quantity"]).round(0)
+    price_numeric = pd.to_numeric(
+        df["Price"].astype(str).str.replace(r"[^\d]", "", regex=True).replace("", float("nan")),
+        errors="coerce"
+    ).fillna(0)
+
+    df["Quantity"] = pd.to_numeric(
+        df["Quantity"].astype(str).str.replace(r"[^\d\.]", "", regex=True).replace("", float("nan")),
+        errors="coerce"
+    ).fillna(0)
+
+    # Lọc dòng hợp lệ
+    mask = (df["Quantity"] > 0) & (price_numeric >= 0)
+    df = df[mask].copy()
+    price_numeric = price_numeric[mask]
+
+    # Tính UnitPrice
+    unit_price = (price_numeric / df["Quantity"]).round(0).astype(int)
+    df["UnitPrice"] = unit_price.apply(lambda x: f"{x:,.0f}đ".replace(",", "."))
+
     return df
 
 

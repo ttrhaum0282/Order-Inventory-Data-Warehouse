@@ -1,501 +1,601 @@
 ﻿ProductID,ProductName,SupplierID,Price,Category,PriceSegment
-1,Deliver World-Class Channels,132,596766.0,Food,Premium
-2,Incentivize Out-Of-The-Box Networks,183,2905084.0,Electronics,Luxury
-3,Transform Back-End Methodologies,222,2849695.0,Books,Luxury
-4,Unleash Rich E-Markets,154,4887140.0,Books,Luxury
-5,Deploy Cross-Platform Models,449,3556776.0,Food,Luxury
-6,Target Leading-Edge Action-Items,341,3826183.0,Books,Luxury
-7,Enable Killer Paradigms,217,1147681.0,Sports,Premium
-8,Streamline Distributed Applications,310,2987421.0,Books,Luxury
-9,Optimize Magnetic Solutions,46,3940904.0,Furniture,Luxury
-10,Revolutionize Best-Of-Breed Relationships,437,388603.0,Electronics,Mid
-11,Engineer Web-Enabled Vortals,345,659028.0,Books,Premium
-12,Monetize One-To-One E-Markets,70,3020378.0,Electronics,Luxury
-13,Evolve Granular E-Services,482,1476613.0,Furniture,Premium
-14,Syndicate Front-End Vortals,76,2158116.0,Books,Luxury
-15,Engage Frictionless E-Markets,66,3759321.0,Food,Luxury
-16,Target B2B Infrastructures,213,1818525.0,Clothing,Premium
-17,Streamline Seamless Schemas,12,4288052.0,Sports,Luxury
-18,Orchestrate Wireless Deliverables,467,4735892.0,Books,Luxury
-19,Optimize E-Business Infrastructures,282,3678028.0,Electronics,Luxury
-20,Generate Proactive E-Tailers,119,2982906.0,Electronics,Luxury
-21,Scale Bricks-And-Clicks Markets,110,501644.0,Electronics,Premium
-22,Deliver Impactful Action-Items,41,2200412.0,Sports,Luxury
-23,Revolutionize Seamless Content,312,2609044.0,Books,Luxury
-24,Utilize Vertical Markets,206,1227101.0,Books,Premium
-25,Optimize Killer Paradigms,277,4292285.0,Food,Luxury
-26,Benchmark Virtual Models,16,1165829.0,Food,Premium
-27,Implement Frictionless Info-Mediaries,18,143466.0,Furniture,Mid
-28,Expedite Magnetic Vortals,284,4042853.0,Electronics,Luxury
-29,E-Enable Enterprise Bandwidth,159,3853948.0,Clothing,Luxury
-30,Transform Integrated Vortals,208,4877597.0,Electronics,Luxury
-31,Maximize Dot-Com Partnerships,314,1034206.0,Electronics,Premium
-32,Envisioneer Open-Source Architectures,262,2687913.0,Clothing,Luxury
-33,Scale Robust Methodologies,78,2570777.0,Clothing,Luxury
-34,Extend E-Business Mindshare,133,1443949.0,Furniture,Premium
-35,Evolve 24/7 Info-Mediaries,348,4112486.0,Clothing,Luxury
-36,Innovate Impactful Supply-Chains,2,2539722.0,Food,Luxury
-37,Deploy Cross-Media Networks,279,4816156.0,Food,Luxury
-38,Brand Vertical Relationships,497,1827714.0,Electronics,Premium
-39,Incubate Extensible Platforms,241,3663095.0,Sports,Luxury
-40,Embrace Compelling Supply-Chains,286,961721.0,Electronics,Premium
-41,Visualize Integrated Solutions,64,3608153.0,Books,Luxury
-42,Re-Intermediate Intuitive Partnerships,457,3615771.0,Clothing,Luxury
-43,Drive Compelling Web Services,238,2953940.0,Books,Luxury
-44,Engineer Interactive Web Services,240,2475209.0,Furniture,Luxury
-45,Transition Front-End Methodologies,282,4495190.0,Clothing,Luxury
-46,Re-Contextualize User-Centric Technologies,30,4439685.0,Food,Luxury
-47,Incentivize Next-Generation Metrics,159,3109445.0,Food,Luxury
-48,Facilitate Out-Of-The-Box Infrastructures,369,214633.0,Sports,Mid
-49,Revolutionize Vertical Initiatives,319,4450659.0,Food,Luxury
-50,Synergize B2B E-Services,456,4010176.0,Furniture,Luxury
-51,Syndicate Efficient Mindshare,249,173217.0,Clothing,Mid
-52,Enable World-Class Markets,67,710116.0,Books,Premium
-53,Streamline Best-Of-Breed Convergence,187,1485034.0,Clothing,Premium
-54,Exploit Front-End Eyeballs,144,894445.0,Food,Premium
-55,Empower Virtual Systems,46,4482054.0,Electronics,Luxury
-56,Benchmark Mission-Critical Supply-Chains,145,1148097.0,Furniture,Premium
-57,Brand 24/7 Roi,462,874738.0,Books,Premium
-58,Re-Contextualize Compelling Systems,144,88561.0,Clothing,Budget
-59,Transform Vertical Initiatives,62,355060.0,Sports,Mid
-60,Revolutionize Wireless Supply-Chains,369,1555764.0,Books,Premium
-61,Unleash Frictionless Metrics,435,680750.0,Food,Premium
-62,Engineer Plug-And-Play Relationships,1,687211.0,Furniture,Premium
-63,Exploit Global Niches,437,3025014.0,Furniture,Luxury
-64,Innovate Cross-Media Info-Mediaries,219,1545568.0,Sports,Premium
-65,Brand Front-End Models,48,2456316.0,Electronics,Luxury
-66,Disintermediate B2C Models,110,3708209.0,Sports,Luxury
-67,Monetize User-Centric Web Services,466,1585531.0,Food,Premium
-68,Architect Innovative Methodologies,459,1140338.0,Clothing,Premium
-69,Syndicate Extensible Interfaces,459,4165131.0,Sports,Luxury
-70,Incubate Enterprise Communities,213,550212.0,Clothing,Premium
-71,Iterate One-To-One Networks,110,3580196.0,Furniture,Luxury
-72,Extend Front-End Schemas,298,1508388.0,Sports,Premium
-73,Re-Contextualize Open-Source Solutions,143,4843417.0,Furniture,Luxury
-74,Repurpose Ubiquitous E-Tailers,456,301128.0,Electronics,Mid
-75,Leverage Visionary Communities,411,1185016.0,Electronics,Premium
-76,Monetize B2C Channels,309,3606997.0,Food,Luxury
-77,Transform Cutting-Edge Eyeballs,273,585402.0,Food,Premium
-78,Innovate One-To-One Content,311,2788550.0,Electronics,Luxury
-79,Enhance Innovative Markets,398,2114285.0,Books,Luxury
-80,Strategize World-Class Action-Items,363,2662719.0,Furniture,Luxury
-81,Streamline Global Interfaces,59,378085.0,Books,Mid
-82,Redefine Open-Source Channels,245,4499261.0,Food,Luxury
-83,Envisioneer Customized Networks,480,4040068.0,Books,Luxury
-84,Reinvent Real-Time Solutions,407,4127057.0,Electronics,Luxury
-85,Utilize Dot-Com Channels,315,2989202.0,Electronics,Luxury
-86,Revolutionize B2C Deliverables,126,2991908.0,Clothing,Luxury
-87,Integrate Ubiquitous Mindshare,447,2953596.0,Sports,Luxury
-88,Redefine Visionary Experiences,230,3855888.0,Electronics,Luxury
-89,Productize Rich E-Business,399,258208.0,Clothing,Mid
-90,Brand Next-Generation Relationships,493,3069870.0,Clothing,Luxury
-91,Engage Out-Of-The-Box Eyeballs,455,3832799.0,Food,Luxury
-92,Transition Customized Deliverables,267,423745.0,Food,Mid
-93,Synthesize End-To-End Mindshare,493,60341.0,Furniture,Budget
-94,Exploit E-Business Metrics,251,1247183.0,Sports,Premium
-95,Engineer Out-Of-The-Box Deliverables,181,2335670.0,Sports,Luxury
-96,Disintermediate Mission-Critical Architectures,25,2421535.0,Food,Luxury
-97,Facilitate Virtual E-Markets,439,1507484.0,Electronics,Premium
-98,Utilize Back-End Initiatives,488,542302.0,Sports,Premium
-99,Benchmark Bricks-And-Clicks Schemas,325,4155749.0,Clothing,Luxury
-100,Reinvent Customized Content,441,1734842.0,Sports,Premium
-101,Strategize Intuitive Networks,97,2639751.0,Sports,Luxury
-102,E-Enable Plug-And-Play E-Tailers,215,4819075.0,Clothing,Luxury
-103,Maximize Frictionless Mindshare,241,3971366.0,Clothing,Luxury
-104,Deliver Bricks-And-Clicks Bandwidth,74,2903165.0,Clothing,Luxury
-105,Disintermediate Synergistic Markets,494,802530.0,Food,Premium
-106,Facilitate Cross-Platform Relationships,17,235653.0,Clothing,Mid
-107,Leverage B2B Convergence,120,340695.0,Books,Mid
-108,Transform Leading-Edge Supply-Chains,131,1092297.0,Furniture,Premium
-109,Enable One-To-One Infrastructures,72,238639.0,Electronics,Mid
-110,Re-Contextualize Best-Of-Breed Eyeballs,398,1864778.0,Electronics,Premium
-111,Facilitate Leading-Edge Partnerships,117,255733.0,Electronics,Mid
-112,Re-Contextualize Rich Experiences,351,2928378.0,Furniture,Luxury
-113,Exploit Bleeding-Edge Communities,347,1116121.0,Clothing,Premium
-114,Extend Impactful Interfaces,499,1358332.0,Electronics,Premium
-115,Re-Contextualize World-Class Users,227,3977479.0,Sports,Luxury
-116,Enable Plug-And-Play Action-Items,87,4617625.0,Books,Luxury
-117,Reinvent Turn-Key Experiences,242,4736558.0,Electronics,Luxury
-118,Seize Distributed Synergies,105,2189160.0,Clothing,Luxury
-119,Target Next-Generation Interfaces,396,155324.0,Food,Mid
-120,Brand 24/365 Content,375,2340545.0,Electronics,Luxury
-121,Orchestrate Compelling Paradigms,45,1375293.0,Books,Premium
-122,Optimize Global E-Business,431,3993016.0,Books,Luxury
-123,Whiteboard Ubiquitous Eyeballs,162,2826532.0,Clothing,Luxury
-124,Facilitate Interactive Infrastructures,442,2216332.0,Books,Luxury
-125,Utilize Scalable Architectures,37,1852143.0,Sports,Premium
-126,Monetize Collaborative Infrastructures,85,4555957.0,Food,Luxury
-127,Redefine Out-Of-The-Box E-Tailers,312,1293943.0,Furniture,Premium
-128,Scale Cross-Platform E-Tailers,491,1806417.0,Food,Premium
-129,Grow Customized Methodologies,370,998084.0,Sports,Premium
-130,Generate Transparent Bandwidth,68,4527020.0,Furniture,Luxury
-131,Empower Vertical Architectures,58,173096.0,Furniture,Mid
-132,E-Enable Cutting-Edge E-Services,385,1250961.0,Clothing,Premium
-133,Empower Distributed E-Business,378,1330101.0,Food,Premium
-134,Syndicate Intuitive Vortals,306,3543449.0,Sports,Luxury
-135,Benchmark World-Class Eyeballs,41,3099570.0,Electronics,Luxury
-136,Revolutionize Transparent Roi,339,1689335.0,Books,Premium
-137,Cultivate Visionary Technologies,374,2035027.0,Food,Luxury
-138,Whiteboard Customized Paradigms,309,2905321.0,Sports,Luxury
-139,Matrix Robust E-Services,90,3609118.0,Electronics,Luxury
-140,Transition Proactive Experiences,372,4733925.0,Food,Luxury
-141,Transform Leading-Edge Relationships,385,4239460.0,Electronics,Luxury
-142,Engineer Visionary E-Business,157,1926446.0,Sports,Premium
-143,Engage Seamless Solutions,332,898880.0,Electronics,Premium
-144,Seize Synergistic Niches,352,900314.0,Electronics,Premium
-145,Streamline Strategic Experiences,268,374042.0,Food,Mid
-146,Visualize Global Convergence,231,3391437.0,Sports,Luxury
-147,Leverage Robust Content,20,4603665.0,Sports,Luxury
-148,Deploy Holistic Metrics,493,1698581.0,Books,Premium
-149,Evolve Scalable Users,124,2336027.0,Food,Luxury
-150,Enable Enterprise Bandwidth,384,3237851.0,Food,Luxury
-151,Optimize Dot-Com Action-Items,58,805956.0,Furniture,Premium
-152,Whiteboard Revolutionary Channels,487,4986608.0,Furniture,Luxury
-153,Enhance Plug-And-Play Supply-Chains,71,702794.0,Furniture,Premium
-154,Unleash Intuitive Web Services,418,1195568.0,Furniture,Premium
-155,Whiteboard Web-Enabled Systems,46,853860.0,Sports,Premium
-156,Whiteboard Leading-Edge Web Services,311,3224044.0,Sports,Luxury
-157,Streamline Visionary E-Markets,261,3977390.0,Clothing,Luxury
-158,Visualize World-Class Technologies,268,3102316.0,Clothing,Luxury
-159,Reinvent Scalable Functionalities,415,3697553.0,Books,Luxury
-160,Synthesize Dynamic Initiatives,316,4564762.0,Books,Luxury
-161,Enable Impactful Infrastructures,393,417038.0,Electronics,Mid
-162,Redefine Visionary Action-Items,25,3921370.0,Clothing,Luxury
-163,Scale 24/365 Web-Readiness,256,2382779.0,Furniture,Luxury
-164,Engineer Out-Of-The-Box E-Tailers,356,2096318.0,Electronics,Luxury
-165,Enhance Holistic Partnerships,84,773555.0,Books,Premium
-166,Utilize Cross-Platform Web Services,47,1849015.0,Food,Premium
-167,Monetize User-Centric Mindshare,129,2474059.0,Books,Luxury
-168,Engineer Cutting-Edge Models,404,1892141.0,Food,Premium
-169,Brand Granular Mindshare,127,1321029.0,Food,Premium
-170,Embrace Turn-Key E-Commerce,50,236316.0,Furniture,Mid
-171,Grow Open-Source Web Services,333,4381378.0,Electronics,Luxury
-172,Innovate Frictionless E-Services,445,94940.0,Books,Budget
-173,E-Enable E-Business Channels,353,4399764.0,Furniture,Luxury
-174,Strategize Transparent Partnerships,1,2411886.0,Clothing,Luxury
-175,Cultivate Open-Source Platforms,274,2908434.0,Electronics,Luxury
-176,Unleash Cross-Media Eyeballs,434,3950332.0,Clothing,Luxury
-177,Implement Seamless Methodologies,30,205311.0,Furniture,Mid
-178,Brand Extensible Systems,304,862215.0,Food,Premium
-179,Optimize Bricks-And-Clicks Communities,270,4007211.0,Books,Luxury
-180,Expedite Leading-Edge Mindshare,290,2097703.0,Furniture,Luxury
-181,Productize Leading-Edge E-Services,372,1217608.0,Food,Premium
-182,Harness Front-End Web-Readiness,406,1318553.0,Books,Premium
-183,Benchmark Best-Of-Breed Convergence,181,1050941.0,Furniture,Premium
-184,Streamline Best-Of-Breed Mindshare,253,3121920.0,Books,Luxury
-185,Implement Transparent Metrics,477,795429.0,Electronics,Premium
-186,Engage Dot-Com Action-Items,218,3959736.0,Clothing,Luxury
-187,Scale Holistic Functionalities,467,2759877.0,Furniture,Luxury
-188,Synergize Global Solutions,287,4329278.0,Electronics,Luxury
-189,Embrace 24/365 Relationships,177,904670.0,Food,Premium
-190,Streamline Efficient Architectures,407,4706786.0,Books,Luxury
-191,Incubate Bricks-And-Clicks Relationships,146,1996075.0,Books,Premium
-192,Productize Synergistic Solutions,104,4377929.0,Sports,Luxury
-193,Cultivate Integrated Info-Mediaries,491,1615623.0,Sports,Premium
-194,Transition Leading-Edge Convergence,121,2290087.0,Sports,Luxury
-195,Leverage Sticky Eyeballs,303,1176165.0,Sports,Premium
-196,Envisioneer Cross-Media Vortals,86,3272884.0,Books,Luxury
-197,Utilize Scalable Architectures,153,2819164.0,Clothing,Luxury
-198,Incubate Interactive E-Tailers,14,3081385.0,Food,Luxury
-199,Repurpose Strategic Applications,267,1653843.0,Sports,Premium
-200,Visualize B2B Deliverables,154,2352623.0,Electronics,Luxury
-201,Redefine Scalable Supply-Chains,280,49954.0,Food,Budget
-202,Transform Mission-Critical Info-Mediaries,241,1298658.0,Furniture,Premium
-203,Evolve Vertical Eyeballs,374,437696.0,Books,Mid
-204,Disintermediate World-Class Users,476,4829563.0,Electronics,Luxury
-205,Grow Magnetic Metrics,307,3874196.0,Electronics,Luxury
-206,Engineer Granular Metrics,255,3877025.0,Food,Luxury
-207,Visualize Leading-Edge E-Services,96,2711173.0,Food,Luxury
-208,Seize Seamless E-Tailers,159,1608927.0,Sports,Premium
-209,Benchmark Best-Of-Breed Systems,125,579773.0,Furniture,Premium
-210,Incentivize Dynamic Web Services,480,2154343.0,Sports,Luxury
-211,Transition Dot-Com Architectures,375,2566628.0,Electronics,Luxury
-212,Generate Out-Of-The-Box Portals,83,4186648.0,Books,Luxury
-213,Synthesize One-To-One Partnerships,164,4420167.0,Furniture,Luxury
-214,Implement One-To-One Convergence,283,1653528.0,Sports,Premium
-215,Revolutionize Cross-Platform E-Services,247,3934659.0,Electronics,Luxury
-216,Strategize Innovative Platforms,103,3313455.0,Electronics,Luxury
-217,Monetize Dot-Com E-Commerce,286,157290.0,Sports,Mid
-218,Embrace Extensible Relationships,26,4524403.0,Electronics,Luxury
-219,Syndicate Efficient Web Services,218,2995692.0,Sports,Luxury
-220,Brand Value-Added Bandwidth,480,4535359.0,Electronics,Luxury
-221,Generate Customized Solutions,96,3107093.0,Food,Luxury
-222,Grow Interactive Web-Readiness,341,1814962.0,Furniture,Premium
-223,Revolutionize Impactful Relationships,445,3990475.0,Furniture,Luxury
-224,Enhance Wireless Info-Mediaries,355,1440543.0,Books,Premium
-225,Iterate Intuitive Action-Items,232,140064.0,Food,Mid
-226,Matrix Holistic E-Commerce,32,4933513.0,Furniture,Luxury
-227,Facilitate Frictionless Content,63,1626490.0,Sports,Premium
-228,Facilitate Mission-Critical Methodologies,466,1236557.0,Food,Premium
-229,Enhance Distributed Metrics,47,4065808.0,Clothing,Luxury
-230,Target Back-End Experiences,329,3786757.0,Food,Luxury
-231,Leverage Impactful Communities,54,2394573.0,Furniture,Luxury
-232,Generate Back-End Eyeballs,245,2219798.0,Sports,Luxury
-233,Empower Transparent Technologies,449,2318492.0,Clothing,Luxury
-234,Re-Intermediate Enterprise Experiences,46,3947855.0,Furniture,Luxury
-235,Utilize Next-Generation Relationships,30,2950252.0,Electronics,Luxury
-236,Revolutionize Mission-Critical E-Tailers,210,1866352.0,Electronics,Premium
-237,Monetize B2B Vortals,262,4414864.0,Furniture,Luxury
-238,Deploy Strategic Relationships,14,544005.0,Books,Premium
-239,Strategize Synergistic Technologies,204,3503543.0,Furniture,Luxury
-240,Facilitate Dot-Com Metrics,227,4052334.0,Electronics,Luxury
-241,Redefine Global Convergence,382,3178242.0,Clothing,Luxury
-242,Architect Mission-Critical Synergies,306,2016734.0,Books,Luxury
-243,Innovate One-To-One Markets,249,162078.0,Books,Mid
-244,Strategize Viral Infrastructures,24,4485539.0,Electronics,Luxury
-245,Redefine Dynamic Infrastructures,463,3026355.0,Clothing,Luxury
-246,Cultivate Dynamic Synergies,290,4294804.0,Electronics,Luxury
-247,Reinvent Sticky Web-Readiness,56,1681656.0,Clothing,Premium
-248,Envisioneer Web-Enabled E-Markets,376,1183982.0,Food,Premium
-249,Extend Cross-Platform Communities,181,3266883.0,Sports,Luxury
-250,Orchestrate Cross-Media Functionalities,114,1689874.0,Food,Premium
-251,Deploy Killer Eyeballs,499,1480434.0,Electronics,Premium
-252,Visualize Bleeding-Edge Methodologies,88,3177868.0,Clothing,Luxury
-253,Strategize Strategic Mindshare,384,4572559.0,Furniture,Luxury
-254,Monetize Web-Enabled E-Markets,20,1951562.0,Furniture,Premium
-255,Utilize Revolutionary Supply-Chains,172,4159862.0,Clothing,Luxury
-256,Synergize Scalable Action-Items,477,3350350.0,Sports,Luxury
-257,E-Enable Dynamic Technologies,165,4493783.0,Electronics,Luxury
-258,Integrate Enterprise Systems,32,2140328.0,Sports,Luxury
-259,Deploy Plug-And-Play Info-Mediaries,23,227227.0,Books,Mid
-260,Iterate Best-Of-Breed Action-Items,1,4983084.0,Sports,Luxury
-261,Utilize Impactful Experiences,371,4013366.0,Clothing,Luxury
-262,Architect Killer Experiences,468,1656262.0,Electronics,Premium
-263,Whiteboard Impactful Initiatives,399,3654377.0,Books,Luxury
-264,Deploy One-To-One Functionalities,183,4079641.0,Electronics,Luxury
-265,Reinvent Seamless Relationships,219,1024883.0,Electronics,Premium
-266,Seize Cutting-Edge Interfaces,326,4754536.0,Food,Luxury
-267,Envisioneer Dot-Com Portals,436,4024913.0,Electronics,Luxury
-268,Harness 24/7 Schemas,39,3862776.0,Sports,Luxury
-269,Monetize Bleeding-Edge Supply-Chains,5,2554178.0,Sports,Luxury
-270,Utilize Leading-Edge Roi,175,2766391.0,Clothing,Luxury
-271,Leverage Integrated Systems,17,1408403.0,Furniture,Premium
-272,Architect Efficient Infrastructures,488,302410.0,Sports,Mid
-273,Productize Turn-Key Relationships,205,448546.0,Sports,Mid
-274,Deliver Frictionless Deliverables,25,171110.0,Books,Mid
-275,Embrace Robust Action-Items,11,1091519.0,Sports,Premium
-276,Cultivate Web-Enabled Supply-Chains,184,3738474.0,Food,Luxury
-277,Extend 24/7 Vortals,482,358398.0,Furniture,Mid
-278,Whiteboard Clicks-And-Mortar Web-Readiness,122,3677816.0,Clothing,Luxury
-279,Innovate Impactful E-Tailers,494,3202549.0,Sports,Luxury
-280,Drive Real-Time Paradigms,388,1905397.0,Clothing,Premium
-281,Leverage World-Class Relationships,47,253074.0,Sports,Mid
-282,Orchestrate Impactful Interfaces,251,2482054.0,Sports,Luxury
-283,Unleash Innovative Networks,73,3671182.0,Furniture,Luxury
-284,Incubate Customized Eyeballs,335,4855969.0,Food,Luxury
-285,Facilitate Real-Time Models,487,706059.0,Clothing,Premium
-286,Generate Best-Of-Breed Interfaces,178,1246904.0,Electronics,Premium
-287,Evolve Global Mindshare,393,3428059.0,Electronics,Luxury
-288,Aggregate End-To-End Convergence,230,3091279.0,Clothing,Luxury
-289,Productize Open-Source E-Business,434,4748165.0,Furniture,Luxury
-290,Deliver Viral E-Commerce,31,3670321.0,Books,Luxury
-291,Target Dynamic Web-Readiness,142,3770970.0,Sports,Luxury
-292,Scale 24/7 Relationships,287,2286953.0,Books,Luxury
-293,Maximize Compelling Schemas,404,2302847.0,Electronics,Luxury
-294,Matrix World-Class Relationships,370,1173812.0,Clothing,Premium
-295,Iterate Vertical Methodologies,462,4358337.0,Sports,Luxury
-296,Optimize E-Business Solutions,300,2515472.0,Sports,Luxury
-297,Brand Real-Time Platforms,439,1605646.0,Furniture,Premium
-298,Reinvent Virtual Markets,320,903187.0,Food,Premium
-299,Target Scalable Web-Readiness,24,192402.0,Books,Mid
-300,Orchestrate Plug-And-Play Metrics,59,3334586.0,Clothing,Luxury
-301,Implement One-To-One Markets,382,1651216.0,Books,Premium
-302,Target Innovative Architectures,189,4298537.0,Furniture,Luxury
-303,Extend Proactive Interfaces,139,4295445.0,Sports,Luxury
-304,Extend One-To-One Web-Readiness,309,214319.0,Furniture,Mid
-305,Engage Cutting-Edge Deliverables,4,2960681.0,Furniture,Luxury
-306,Re-Intermediate Back-End Methodologies,412,4594057.0,Furniture,Luxury
-307,Whiteboard Granular E-Business,13,2911337.0,Furniture,Luxury
-308,Orchestrate Real-Time Networks,84,3390694.0,Furniture,Luxury
-309,Optimize E-Business Bandwidth,481,4830121.0,Furniture,Luxury
-310,Harness Back-End Applications,439,3255953.0,Books,Luxury
-311,Re-Intermediate Intuitive Paradigms,200,3901809.0,Electronics,Luxury
-312,Integrate Collaborative Platforms,380,814387.0,Clothing,Premium
-313,Cultivate User-Centric Technologies,280,1181111.0,Food,Premium
-314,Reinvent E-Business Paradigms,401,734201.0,Food,Premium
-315,Reinvent B2B Info-Mediaries,438,2517300.0,Electronics,Luxury
-316,Syndicate Customized Mindshare,294,1659039.0,Sports,Premium
-317,Maximize Rich Supply-Chains,13,2740565.0,Books,Luxury
-318,Evolve Virtual Applications,6,982228.0,Food,Premium
-319,Harness Ubiquitous Markets,316,4790826.0,Food,Luxury
-320,Facilitate Cross-Media Roi,423,1716214.0,Books,Premium
-321,Embrace Bricks-And-Clicks Systems,412,1316678.0,Food,Premium
-322,Benchmark B2C Schemas,412,4138774.0,Sports,Luxury
-323,Reinvent Granular Platforms,105,434563.0,Furniture,Mid
-324,Benchmark Strategic Users,382,3237326.0,Clothing,Luxury
-325,Incentivize Leading-Edge Content,287,1465678.0,Sports,Premium
-326,Productize Revolutionary Relationships,381,3524537.0,Books,Luxury
-327,Scale Efficient E-Tailers,316,4720343.0,Food,Luxury
-328,Strategize Wireless Web-Readiness,437,2160236.0,Books,Luxury
-329,Grow Dynamic Convergence,313,711668.0,Food,Premium
-330,Exploit Seamless Communities,9,2963464.0,Books,Luxury
-331,Repurpose Efficient Relationships,449,1987034.0,Sports,Premium
-332,Exploit Front-End Solutions,208,2421628.0,Clothing,Luxury
-333,Engineer Out-Of-The-Box Content,224,1711588.0,Books,Premium
-334,Brand User-Centric Web-Readiness,280,3896837.0,Books,Luxury
-335,Drive Interactive Partnerships,355,4232351.0,Books,Luxury
-336,Engineer Front-End Applications,483,2480086.0,Clothing,Luxury
-337,Leverage Web-Enabled Networks,354,2646186.0,Clothing,Luxury
-338,Transition 24/7 Content,358,4252864.0,Books,Luxury
-339,Synthesize Seamless Partnerships,82,4996272.0,Furniture,Luxury
-340,Facilitate Virtual Architectures,381,1175533.0,Food,Premium
-341,Streamline Cutting-Edge Bandwidth,9,170560.0,Clothing,Mid
-342,Extend Cross-Platform Methodologies,36,1574010.0,Clothing,Premium
-343,Brand Vertical Channels,398,347133.0,Clothing,Mid
-344,Embrace Open-Source Functionalities,124,2547930.0,Electronics,Luxury
-345,Maximize Intuitive Models,320,1851604.0,Food,Premium
-346,Optimize Granular Info-Mediaries,90,3654130.0,Furniture,Luxury
-347,Incubate 24/7 Vortals,378,807781.0,Furniture,Premium
-348,Envisioneer 24/365 Mindshare,278,2836068.0,Sports,Luxury
-349,Mesh Robust Functionalities,237,2370575.0,Sports,Luxury
-350,Orchestrate Wireless Interfaces,273,1440247.0,Food,Premium
-351,Morph Frictionless Relationships,355,447130.0,Sports,Mid
-352,Drive Seamless Vortals,349,1827483.0,Clothing,Premium
-353,Enhance Cutting-Edge Systems,55,3875410.0,Electronics,Luxury
-354,Extend Dot-Com E-Tailers,180,404574.0,Sports,Mid
-355,Optimize Global E-Markets,308,4542689.0,Electronics,Luxury
-356,Exploit User-Centric Relationships,161,4375706.0,Books,Luxury
-357,Incubate 24/7 Experiences,429,201257.0,Furniture,Mid
-358,Re-Contextualize B2B Interfaces,115,4759148.0,Books,Luxury
-359,Innovate Strategic Eyeballs,68,2402096.0,Sports,Luxury
-360,Exploit Real-Time Web-Readiness,434,1955630.0,Books,Premium
-361,Morph Virtual E-Services,438,2952687.0,Books,Luxury
-362,Redefine Value-Added Interfaces,252,4507827.0,Clothing,Luxury
-363,Enable Wireless Web Services,58,1857018.0,Sports,Premium
-364,Mesh 24/365 Supply-Chains,248,744252.0,Clothing,Premium
-365,Innovate Efficient Web-Readiness,406,3252679.0,Books,Luxury
-366,Iterate Front-End Functionalities,254,555758.0,Clothing,Premium
-367,Incentivize Proactive E-Services,221,3173470.0,Food,Luxury
-368,Repurpose Vertical Niches,6,3375741.0,Furniture,Luxury
-369,Architect 24/365 Action-Items,358,4248465.0,Electronics,Luxury
-370,Mesh Synergistic Niches,237,2917368.0,Clothing,Luxury
-371,Maximize Seamless Models,399,1392594.0,Food,Premium
-372,Exploit Front-End Schemas,265,4975646.0,Electronics,Luxury
-373,Cultivate Next-Generation Portals,308,3746312.0,Furniture,Luxury
-374,Cultivate B2C Bandwidth,357,2225770.0,Books,Luxury
-375,Scale Seamless Synergies,347,2412787.0,Furniture,Luxury
-376,Visualize Clicks-And-Mortar Channels,60,1002088.0,Sports,Premium
-377,Deliver Viral Platforms,463,3610514.0,Books,Luxury
-378,Matrix Bricks-And-Clicks Web Services,219,2472623.0,Furniture,Luxury
-379,Aggregate Robust Systems,450,1500643.0,Books,Premium
-380,Extend Dot-Com Models,414,1908415.0,Electronics,Premium
-381,Implement Open-Source E-Business,91,4645713.0,Food,Luxury
-382,Incentivize One-To-One Functionalities,437,783545.0,Electronics,Premium
-383,Transform Turn-Key Architectures,419,3458114.0,Furniture,Luxury
-384,Architect Bricks-And-Clicks E-Commerce,325,3365989.0,Books,Luxury
-385,Empower Sticky Schemas,248,3286872.0,Food,Luxury
-386,Re-Contextualize 24/7 Eyeballs,323,3310342.0,Electronics,Luxury
-387,Whiteboard Killer Metrics,270,3289932.0,Books,Luxury
-388,Visualize Wireless Infrastructures,238,3288821.0,Electronics,Luxury
-389,Matrix Intuitive E-Business,380,253414.0,Books,Mid
-390,Expedite Visionary Markets,202,3278151.0,Books,Luxury
-391,Benchmark Seamless Experiences,301,1321950.0,Sports,Premium
-392,Envisioneer Best-Of-Breed Markets,346,2616637.0,Food,Luxury
-393,Leverage Robust Users,489,45576.0,Electronics,Budget
-394,Drive Synergistic Synergies,103,4447458.0,Clothing,Luxury
-395,Incentivize Visionary Paradigms,26,1621866.0,Food,Premium
-396,Monetize Visionary Portals,249,3621842.0,Sports,Luxury
-397,Optimize End-To-End Platforms,403,537247.0,Food,Premium
-398,Aggregate 24/7 Applications,114,1067864.0,Sports,Premium
-399,Grow Real-Time Content,498,1598539.0,Clothing,Premium
-400,Embrace Holistic Supply-Chains,449,509236.0,Furniture,Premium
-401,Seize Vertical Applications,128,1915827.0,Furniture,Premium
-402,Exploit Bleeding-Edge Niches,152,908292.0,Clothing,Premium
-403,Grow Leading-Edge Communities,153,3422376.0,Electronics,Luxury
-404,Seize Mission-Critical Web-Readiness,130,2488097.0,Sports,Luxury
-405,Aggregate Seamless Methodologies,435,240650.0,Books,Mid
-406,Monetize Granular Channels,167,1818069.0,Sports,Premium
-407,Matrix B2B Markets,367,345519.0,Books,Mid
-408,Synergize Bleeding-Edge Bandwidth,495,4560465.0,Furniture,Luxury
-409,Generate Open-Source Technologies,243,1614607.0,Books,Premium
-410,Productize E-Business Initiatives,396,4303099.0,Furniture,Luxury
-411,Architect B2B Methodologies,134,3062474.0,Electronics,Luxury
-412,Unleash Vertical Architectures,199,757670.0,Sports,Premium
-413,E-Enable Web-Enabled Users,317,2477178.0,Furniture,Luxury
-414,Scale Best-Of-Breed Schemas,12,854397.0,Books,Premium
-415,Benchmark Cross-Platform Paradigms,313,81133.0,Furniture,Budget
-416,Strategize Synergistic Interfaces,59,4129142.0,Furniture,Luxury
-417,Utilize Customized Users,445,2107213.0,Furniture,Luxury
-418,Deliver Proactive Schemas,427,845657.0,Food,Premium
-419,Cultivate End-To-End Solutions,63,639603.0,Sports,Premium
-420,Target Back-End Paradigms,8,4196725.0,Food,Luxury
-421,Extend Bricks-And-Clicks Web Services,395,1935409.0,Sports,Premium
-422,Whiteboard Dot-Com E-Markets,148,3725690.0,Clothing,Luxury
-423,Expedite B2B Eyeballs,219,2644851.0,Food,Luxury
-424,Envisioneer Web-Enabled E-Markets,97,2906355.0,Furniture,Luxury
-425,Engage Intuitive Bandwidth,290,3595863.0,Clothing,Luxury
-426,Facilitate Killer Web Services,389,4617090.0,Clothing,Luxury
-427,Morph Back-End E-Commerce,210,276990.0,Sports,Mid
-428,Facilitate World-Class Functionalities,123,1300464.0,Sports,Premium
-429,Optimize Proactive E-Commerce,119,749948.0,Clothing,Premium
-430,Repurpose Visionary Functionalities,488,1581409.0,Food,Premium
-431,Repurpose Extensible Web Services,89,3127296.0,Food,Luxury
-432,Syndicate Holistic Markets,145,1228246.0,Clothing,Premium
-433,Incentivize World-Class Vortals,95,736216.0,Sports,Premium
-434,Redefine Visionary Bandwidth,14,4087479.0,Clothing,Luxury
-435,Iterate Rich Bandwidth,168,3377132.0,Clothing,Luxury
-436,Implement Cutting-Edge Applications,447,3836527.0,Books,Luxury
-437,Target Enterprise E-Commerce,301,1131065.0,Sports,Premium
-438,Strategize 24/365 Users,144,2708691.0,Electronics,Luxury
-439,Reinvent Efficient Synergies,107,1371526.0,Electronics,Premium
-440,Engage Frictionless Paradigms,12,1373664.0,Electronics,Premium
-441,Transition Innovative E-Commerce,213,3001584.0,Food,Luxury
-442,Exploit 24/7 Eyeballs,62,672626.0,Sports,Premium
-443,Streamline Wireless Action-Items,392,2068310.0,Food,Luxury
-444,Benchmark 24/7 Relationships,48,4894588.0,Electronics,Luxury
-445,Unleash Real-Time Metrics,190,3653556.0,Furniture,Luxury
-446,Scale Viral Synergies,394,864250.0,Electronics,Premium
-447,Matrix Cross-Media Deliverables,470,1639230.0,Books,Premium
-448,Streamline Seamless Communities,168,1720619.0,Electronics,Premium
-449,Architect Dynamic Interfaces,212,1338655.0,Furniture,Premium
-450,Innovate Intuitive Partnerships,19,1959262.0,Sports,Premium
-451,Incentivize Dot-Com Architectures,409,1640640.0,Clothing,Premium
-452,Deliver 24/365 Models,166,4980823.0,Electronics,Luxury
-453,Transition Magnetic Portals,130,2361580.0,Clothing,Luxury
-454,Syndicate Viral Networks,460,1501160.0,Electronics,Premium
-455,Deliver Distributed Web Services,434,4874511.0,Food,Luxury
-456,Deploy Virtual Systems,413,4337496.0,Food,Luxury
-457,Empower Plug-And-Play Applications,35,545502.0,Books,Premium
-458,Facilitate Front-End Mindshare,489,3893297.0,Furniture,Luxury
-459,Facilitate Global Paradigms,404,2684919.0,Clothing,Luxury
-460,Repurpose Best-Of-Breed Markets,95,4546195.0,Books,Luxury
-461,Evolve Transparent Niches,433,2956323.0,Food,Luxury
-462,Matrix Open-Source Initiatives,465,3679954.0,Food,Luxury
-463,Visualize Cross-Platform Initiatives,317,2403323.0,Furniture,Luxury
-464,Transform Transparent E-Services,311,412505.0,Sports,Mid
-465,E-Enable Dynamic Paradigms,380,3867494.0,Sports,Luxury
-466,Disintermediate Extensible Mindshare,145,1599611.0,Clothing,Premium
-467,Matrix Impactful Models,276,4011533.0,Food,Luxury
-468,Syndicate Magnetic Mindshare,319,1773388.0,Electronics,Premium
-469,Empower Real-Time Platforms,31,4791997.0,Furniture,Luxury
-470,Monetize Integrated Content,17,411331.0,Books,Mid
-471,Whiteboard Cross-Media Metrics,128,4036661.0,Clothing,Luxury
-472,Benchmark Transparent Paradigms,355,4276590.0,Clothing,Luxury
-473,Empower Rich Bandwidth,458,3331926.0,Electronics,Luxury
-474,Extend Vertical E-Markets,342,3899832.0,Furniture,Luxury
-475,Repurpose Turn-Key Paradigms,284,4910955.0,Electronics,Luxury
-476,Transform Integrated Architectures,5,4842712.0,Sports,Luxury
-477,Enhance Innovative Action-Items,359,477832.0,Electronics,Mid
-478,Streamline Compelling Content,409,4198721.0,Clothing,Luxury
-479,Re-Contextualize Holistic E-Tailers,236,1433961.0,Furniture,Premium
-480,Benchmark Strategic Users,327,1382071.0,Food,Premium
-481,Benchmark Customized Paradigms,409,4518615.0,Food,Luxury
-482,Repurpose Synergistic Experiences,103,3135735.0,Furniture,Luxury
-483,Syndicate Scalable Deliverables,202,195395.0,Sports,Mid
-484,Scale Clicks-And-Mortar Niches,362,1903279.0,Sports,Premium
-485,Grow Value-Added Web Services,90,4307661.0,Food,Luxury
-486,Incentivize Extensible Partnerships,52,2399464.0,Food,Luxury
-487,Re-Contextualize Leading-Edge E-Markets,333,1455642.0,Furniture,Premium
-488,Generate Virtual Experiences,81,1220017.0,Furniture,Premium
-489,Unleash Cross-Platform E-Markets,57,607279.0,Food,Premium
-490,Utilize Dot-Com Action-Items,493,2285916.0,Furniture,Luxury
-491,Reinvent Customized Models,307,3059409.0,Food,Luxury
-492,Deploy End-To-End Platforms,495,4969050.0,Sports,Luxury
-493,Aggregate Integrated Relationships,192,2291951.0,Clothing,Luxury
-494,Generate 24/7 Vortals,190,1777200.0,Furniture,Premium
-495,Unleash Rich Mindshare,46,533662.0,Electronics,Premium
-496,Synergize 24/365 E-Tailers,305,2845020.0,Sports,Luxury
-497,Target Value-Added Bandwidth,403,4111290.0,Books,Luxury
-498,Synthesize Turn-Key Niches,397,4623456.0,Electronics,Luxury
-499,Re-Intermediate Cross-Media Markets,379,3052765.0,Electronics,Luxury
-500,Empower 24/7 Systems,80,1439785.0,Clothing,Premium
+1,Xe đạp Asama màu đen/đỏ,177,24.708.000đ,Thể thao,Xa xỉ
+2,Sách lịch sử Việt Nam Sử Lược Tập 1,38,80.000đ,Sách,Bình dân
+3,Loa Bluetooth Sony SRS Plus 16,243,3.076.000đ,Điện tử,Xa xỉ
+4,Tạ tay Bowflex size 42,291,1.987.000đ,Thể thao,Cao cấp
+5,Đèn bàn Xiaomi MIJIA màu walnut,65,270.000đ,Nội thất,Tầm trung
+6,Màn hình Dell UltraSharp Series 200,132,5.437.000đ,Điện tử,Xa xỉ
+7,Xe đạp Giant ATX size 38,464,17.227.000đ,Thể thao,Xa xỉ
+8,Loa Bluetooth JBL Charge Ultra 200,410,1.062.000đ,Điện tử,Cao cấp
+9,Laptop Acer Aspire Series 16,421,10.247.000đ,Điện tử,Xa xỉ
+10,Dụng cụ yoga Adidas size 42,187,547.000đ,Thể thao,Cao cấp
+11,Chuột gaming Logitech G 32i,174,1.345.000đ,Điện tử,Cao cấp
+12,Mũ Adidas size S,396,296.000đ,Thời trang,Tầm trung
+13,Máy ảnh Fujifilm X Pro 250,480,11.544.000đ,Điện tử,Xa xỉ
+14,Sữa Mộc Châu 1kg,182,61.000đ,Thực phẩm,Bình dân
+15,Đèn bàn Xiaomi MIJIA màu oak,279,364.000đ,Nội thất,Tầm trung
+16,Máy tính bảng Lenovo Tab Pro 200,246,4.724.000đ,Điện tử,Xa xỉ
+17,Ghế văn phòng Ergohuman màu oak,58,1.565.000đ,Nội thất,Cao cấp
+18,Thảm trải sàn IKEA ÅDUM bộ 2 cái,387,2.700.000đ,Nội thất,Xa xỉ
+19,Áo thể thao Under Armour màu đen/vàng,204,308.000đ,Thể thao,Tầm trung
+20,Giường ngủ JYSK Maribo bộ 4 cái,235,9.362.000đ,Nội thất,Xa xỉ
+21,Kệ sách IKEA KALLAX màu oak,177,1.924.000đ,Nội thất,Cao cấp
+22,Từ điển Longman Dictionary (Bìa Mềm),482,387.000đ,Sách,Tầm trung
+23,Giày cao gót Aldo màu navy,45,2.610.000đ,Thời trang,Xa xỉ
+24,Sách giáo khoa Toán 12 Tập 3,274,40.000đ,Sách,Bình dân
+25,Máy tính bảng Samsung Galaxy Tab Plus 64,171,16.177.000đ,Điện tử,Xa xỉ
+26,Sofa Hòa Phát màu oak,33,7.287.000đ,Nội thất,Xa xỉ
+27,Máy ảnh Fujifilm X 250i,231,55.758.000đ,Điện tử,Xa xỉ
+28,Quần jean Levi's màu đen,267,1.909.000đ,Thời trang,Cao cấp
+29,Quần jean Routine màu đen,124,1.730.000đ,Thời trang,Cao cấp
+30,Sách kỹ năng Atomic Habits - Ấn Bản Đặc Biệt,436,228.000đ,Sách,Tầm trung
+31,Dầu ăn Neptune 500ml,373,149.000đ,Thực phẩm,Tầm trung
+32,Giày chạy bộ Adidas Ultraboost màu xanh/trắng,141,3.674.000đ,Thể thao,Xa xỉ
+33,Sách kinh tế Cha Giàu Cha Nghèo (Tái Bản),2,100.000đ,Sách,Bình dân
+34,Áo thun Canifa màu trắng,181,119.000đ,Thời trang,Tầm trung
+35,Loa Bluetooth Marshall Emberton 8X,364,1.452.000đ,Điện tử,Cao cấp
+36,Dầu ăn Neptune 200g,139,123.000đ,Thực phẩm,Tầm trung
+37,Áo thể thao Nike Dri-FIT màu đen/vàng,442,919.000đ,Thể thao,Cao cấp
+38,Sách kỹ năng Mindset Tập 2,288,255.000đ,Sách,Tầm trung
+39,Dầu ăn Tường An hộp 24 gói,389,120.000đ,Thực phẩm,Tầm trung
+40,Găng tay boxing Everlast màu xanh/trắng,4,484.000đ,Thể thao,Tầm trung
+41,Laptop Acer Aspire Pro 32,106,36.342.000đ,Điện tử,Xa xỉ
+42,Chuột gaming Logitech G Pro 200,326,2.754.000đ,Điện tử,Xa xỉ
+43,Kệ sách Nội thất Duy Phát bộ 4 cái,268,962.000đ,Nội thất,Cao cấp
+44,Giường ngủ Nội thất An Lành màu walnut,50,8.986.000đ,Nội thất,Xa xỉ
+45,Nước mắm Nam Ngư hộp 24 gói,25,70.000đ,Thực phẩm,Bình dân
+46,Túi xách Kipling màu navy,290,3.595.000đ,Thời trang,Xa xỉ
+47,Bóng đá Mikasa màu đen/vàng,214,309.000đ,Thể thao,Tầm trung
+48,Rèm cửa IKEA MERETE màu trắng sữa,34,2.902.000đ,Nội thất,Xa xỉ
+49,Cà phê Highlands Coffee túi 2kg,123,189.000đ,Thực phẩm,Tầm trung
+50,Sách kỹ năng Ikigai Tập 1,6,255.000đ,Sách,Tầm trung
+51,Smartwatch Xiaomi Smart Band Plus 200,420,14.261.000đ,Điện tử,Xa xỉ
+52,Điện thoại Realme C 64X,212,22.623.000đ,Điện tử,Xa xỉ
+53,Tiểu thuyết Mắt Biếc (Bìa Cứng),139,158.000đ,Sách,Tầm trung
+54,Tạ tay Bowflex size 40,379,1.573.000đ,Thể thao,Cao cấp
+55,Thảm trải sàn Carpet One bộ 2 cái,381,2.842.000đ,Nội thất,Xa xỉ
+56,Giường ngủ Kim Tiền màu oak,478,2.636.000đ,Nội thất,Xa xỉ
+57,Gia vị Cholimex hộp 24 gói,319,34.000đ,Thực phẩm,Bình dân
+58,Túi xách Chanel size M,196,19.214.000đ,Thời trang,Xa xỉ
+59,Xe đạp Asama size 38,177,16.523.000đ,Thể thao,Xa xỉ
+60,Dầu ăn Tường An 1kg,412,34.000đ,Thực phẩm,Bình dân
+61,Kính mắt Oakley màu trắng,216,3.633.000đ,Thời trang,Xa xỉ
+62,Nước mắm Nam Ngư hộp 24 gói,192,38.000đ,Thực phẩm,Bình dân
+63,Điện thoại Xiaomi Redmi Series 500,482,32.802.000đ,Điện tử,Xa xỉ
+64,Xe đạp Specialized Rockhopper màu xanh/trắng,43,10.745.000đ,Thể thao,Xa xỉ
+65,Bàn phím cơ Logitech MX Keys Series 64,481,3.269.000đ,Điện tử,Xa xỉ
+66,Máy ảnh Canon EOS 16X,80,40.395.000đ,Điện tử,Xa xỉ
+67,Mũ Dickies màu navy,230,439.000đ,Thời trang,Tầm trung
+68,Giày chạy bộ Brooks Ghost size 44,325,3.126.000đ,Thể thao,Xa xỉ
+69,Máy ảnh Canon EOS 250X,7,17.122.000đ,Điện tử,Xa xỉ
+70,Sofa Nội thất Xanh màu walnut,294,13.759.000đ,Nội thất,Xa xỉ
+71,Sofa Ashley bộ 2 cái,309,10.406.000đ,Nội thất,Xa xỉ
+72,Áo thể thao Puma Dry Cell size 40,105,647.000đ,Thể thao,Cao cấp
+73,Bàn làm việc Herman Miller màu trắng sữa,429,11.121.000đ,Nội thất,Xa xỉ
+74,Tạ tay CAP Barbell size 42,81,2.102.000đ,Thể thao,Xa xỉ
+75,Ghế văn phòng Hòa Phát HCG màu trắng sữa,7,11.370.000đ,Nội thất,Xa xỉ
+76,Giày sneaker Adidas Stan Smith size M,431,3.191.000đ,Thời trang,Xa xỉ
+77,Từ điển Lạc Việt Anh-Việt Tập 3,22,276.000đ,Sách,Tầm trung
+78,Mì ăn liền Indomie hộp 24 gói,161,15.000đ,Thực phẩm,Bình dân
+79,Điện thoại OPPO Reno Ultra 250,373,2.951.000đ,Điện tử,Xa xỉ
+80,Giường ngủ JYSK Maribo màu oak,240,18.100.000đ,Nội thất,Xa xỉ
+81,Kính mắt Gucci màu navy,101,1.967.000đ,Thời trang,Cao cấp
+82,Màn hình Samsung Odyssey Series 100,6,19.233.000đ,Điện tử,Xa xỉ
+83,Máy tính bảng Xiaomi Pad Series 32,185,22.701.000đ,Điện tử,Xa xỉ
+84,Bánh kẹo Pocky 250ml,111,114.000đ,Thực phẩm,Tầm trung
+85,Vợt cầu lông Victor Thruster màu đen/vàng,104,1.495.000đ,Thể thao,Cao cấp
+86,Cà phê Trung Nguyên Legend lốc 4 hộp,79,230.000đ,Thực phẩm,Tầm trung
+87,Đèn bàn Baseus màu walnut,470,547.000đ,Nội thất,Cao cấp
+88,Vợt cầu lông Kawasaki màu đen/đỏ,170,1.109.000đ,Thể thao,Cao cấp
+89,Đồng hồ thời trang Daniel Wellington màu navy,157,1.351.000đ,Thời trang,Cao cấp
+90,Dây nhảy Everlast size 40,69,152.000đ,Thể thao,Tầm trung
+91,Bóng đá Mikasa size 44,95,104.000đ,Thể thao,Tầm trung
+92,Sách thiếu nhi Harry Potter - Ấn Bản Đặc Biệt,149,60.000đ,Sách,Bình dân
+93,Tiểu thuyết Sapiens Tập 1,43,155.000đ,Sách,Tầm trung
+94,Sách thiếu nhi Harry Potter Tập 3,111,116.000đ,Sách,Tầm trung
+95,Váy H&M size L,23,1.427.000đ,Thời trang,Cao cấp
+96,Rèm cửa Vải Thành Công bộ 4 cái,382,1.379.000đ,Nội thất,Cao cấp
+97,Bánh kẹo Oreo lốc 4 hộp,297,106.000đ,Thực phẩm,Tầm trung
+98,Gạo Bắc Hương thùng 24 lon,195,81.000đ,Thực phẩm,Bình dân
+99,Giường ngủ Kim Tiền màu trắng sữa,436,3.707.000đ,Nội thất,Xa xỉ
+100,Cà phê Nescafé thùng 24 lon,404,119.000đ,Thực phẩm,Tầm trung
+101,Chuột gaming Razer DeathAdder Plus 32,362,838.000đ,Điện tử,Cao cấp
+102,Dụng cụ yoga Manduka PRO size 42,143,416.000đ,Thể thao,Tầm trung
+103,Vợt cầu lông Yonex Astrox màu xanh/trắng,392,3.073.000đ,Thể thao,Xa xỉ
+104,Smartwatch Garmin Forerunner 500X,453,9.894.000đ,Điện tử,Xa xỉ
+105,Sách nấu ăn Bếp Của Mẹ - Ấn Bản Đặc Biệt,83,214.000đ,Sách,Tầm trung
+106,Sách thiếu nhi Cô Bé Quàng Khăn Đỏ (Bìa Mềm),39,90.000đ,Sách,Bình dân
+107,Kệ sách Nội thất Duy Phát màu oak,257,1.061.000đ,Nội thất,Cao cấp
+108,Bàn phím cơ Razer BlackWidow 16i,80,3.235.000đ,Điện tử,Xa xỉ
+109,Giường ngủ Nội thất An Lành màu đen mờ,479,16.031.000đ,Nội thất,Xa xỉ
+110,Túi xách Tumi màu đen,487,19.418.000đ,Thời trang,Xa xỉ
+111,Vợt tennis Head Gravity màu đen/đỏ,416,5.883.000đ,Thể thao,Xa xỉ
+112,Laptop Lenovo Thinkpad Series 200,232,48.876.000đ,Điện tử,Xa xỉ
+113,Quần jean Levi's size S,8,1.499.000đ,Thời trang,Cao cấp
+114,Dầu ăn Neptune 1 lít,290,73.000đ,Thực phẩm,Bình dân
+115,Máy ảnh Canon EOS Ultra 100,398,7.873.000đ,Điện tử,Xa xỉ
+116,Sách tâm lý Người Đàn Ông Tìm Kiếm Ý Nghĩa (Tái Bản),307,265.000đ,Sách,Tầm trung
+117,Sách kỹ năng Ikigai (Bìa Cứng),65,85.000đ,Sách,Bình dân
+118,Kính mắt Ray-Ban size M,212,2.955.000đ,Thời trang,Xa xỉ
+119,Giày cao gót Aldo size XL,500,2.736.000đ,Thời trang,Xa xỉ
+120,Chuột gaming Logitech G Pro 8,484,650.000đ,Điện tử,Cao cấp
+121,Điện thoại Realme C 8i,208,31.791.000đ,Điện tử,Xa xỉ
+122,Chuột gaming Zowie EC Ultra 500,433,1.514.000đ,Điện tử,Cao cấp
+123,Vợt cầu lông Li-Ning Turbo size 44,156,2.438.000đ,Thể thao,Xa xỉ
+124,Cà phê Highlands Coffee 1 lít,190,221.000đ,Thực phẩm,Tầm trung
+125,Xe đạp Asama size 40,22,19.971.000đ,Thể thao,Xa xỉ
+126,Giường ngủ IKEA MALM màu trắng sữa,384,10.326.000đ,Nội thất,Xa xỉ
+127,Sách lập trình Eloquent JavaScript Tập 3,469,313.000đ,Sách,Tầm trung
+128,Giường ngủ Kim Tiền màu oak,128,5.762.000đ,Nội thất,Xa xỉ
+129,Bàn phím cơ Logitech MX Keys 250X,79,2.481.000đ,Điện tử,Xa xỉ
+130,Sách kinh tế Nghĩ Giàu Làm Giàu Tập 1,1,222.000đ,Sách,Tầm trung
+131,Áo thể thao Under Armour size 38,160,566.000đ,Thể thao,Cao cấp
+132,Sữa Mộc Châu 1 lít,483,292.000đ,Thực phẩm,Tầm trung
+133,Xe đạp Giant ATX size 40,329,23.903.000đ,Thể thao,Xa xỉ
+134,Sữa Vinamilk thùng 24 lon,279,373.000đ,Thực phẩm,Tầm trung
+135,Bàn làm việc IKEA LINNMON bộ 2 cái,267,8.119.000đ,Nội thất,Xa xỉ
+136,Nước mắm Phú Quốc 1 lít,334,60.000đ,Thực phẩm,Bình dân
+137,Rèm cửa JYSK màu trắng sữa,172,2.927.000đ,Nội thất,Xa xỉ
+138,Tủ quần áo IKEA PAX màu đen mờ,106,2.832.000đ,Nội thất,Xa xỉ
+139,Dụng cụ yoga Manduka PRO size 38,281,813.000đ,Thể thao,Cao cấp
+140,Smartwatch Samsung Galaxy Watch Pro 100,236,14.619.000đ,Điện tử,Xa xỉ
+141,Loa Bluetooth Bose SoundLink Pro 250,61,1.470.000đ,Điện tử,Cao cấp
+142,Giày cao gót Charles & Keith size XL,133,1.999.000đ,Thời trang,Cao cấp
+143,Đồng hồ thời trang Fossil size M,249,1.468.000đ,Thời trang,Cao cấp
+144,Găng tay boxing Twins màu đen/đỏ,159,437.000đ,Thể thao,Tầm trung
+145,Từ điển Lạc Việt Anh-Việt Tập 1,9,475.000đ,Sách,Tầm trung
+146,Đèn bàn Xiaomi MIJIA bộ 2 cái,140,1.033.000đ,Nội thất,Cao cấp
+147,Máy ảnh Sony Alpha Series 250,363,24.254.000đ,Điện tử,Xa xỉ
+148,Sách kinh tế Đầu Tư Thông Minh Tập 3,79,151.000đ,Sách,Tầm trung
+149,Túi xách Furla màu trắng,415,8.247.000đ,Thời trang,Xa xỉ
+150,Snack Oishi 500g,53,77.000đ,Thực phẩm,Bình dân
+151,Máy ảnh Sony Alpha 64i,66,56.272.000đ,Điện tử,Xa xỉ
+152,Mì ăn liền Hảo Hảo thùng 24 lon,389,42.000đ,Thực phẩm,Bình dân
+153,Mì ăn liền Omachi 500ml,369,28.000đ,Thực phẩm,Bình dân
+154,Mì ăn liền Omachi 1 lít,15,68.000đ,Thực phẩm,Bình dân
+155,Dây nhảy Nike size 44,296,223.000đ,Thể thao,Tầm trung
+156,Mũ Vans size XL,67,406.000đ,Thời trang,Tầm trung
+157,Cà phê Highlands Coffee 1kg,16,70.000đ,Thực phẩm,Bình dân
+158,Smartwatch Xiaomi Smart Band Plus 200,269,8.030.000đ,Điện tử,Xa xỉ
+159,Ghế văn phòng Secretlab màu đen mờ,108,1.865.000đ,Nội thất,Cao cấp
+160,Sách nấu ăn Bếp Của Mẹ (Bìa Mềm),445,100.000đ,Sách,Bình dân
+161,Gạo Nàng Hoa thùng 24 lon,287,121.000đ,Thực phẩm,Tầm trung
+162,Snack Doritos hộp 24 gói,484,71.000đ,Thực phẩm,Bình dân
+163,Gương La Redoute bộ 2 cái,272,578.000đ,Nội thất,Cao cấp
+164,Chuột gaming Logitech G Series 100,166,1.623.000đ,Điện tử,Cao cấp
+165,Kính mắt Ray-Ban size L,121,1.400.000đ,Thời trang,Cao cấp
+166,Máy tính bảng Xiaomi Pad Plus 250,49,7.118.000đ,Điện tử,Xa xỉ
+167,Dụng cụ yoga Manduka PRO size 42,432,401.000đ,Thể thao,Tầm trung
+168,Laptop MacBook Air 250i,465,32.130.000đ,Điện tử,Xa xỉ
+169,Kính mắt Ray-Ban màu trắng,194,348.000đ,Thời trang,Tầm trung
+170,Sách lịch sử Lịch Sử Thế Giới Tập 1,356,168.000đ,Sách,Tầm trung
+171,Điện thoại Nokia G 64i,42,16.579.000đ,Điện tử,Xa xỉ
+172,Bóng đá Adidas Tango màu xanh/trắng,23,679.000đ,Thể thao,Cao cấp
+173,Xe đạp Trek Marlin size 44,203,20.956.000đ,Thể thao,Xa xỉ
+174,Tủ quần áo JYSK màu oak,23,12.777.000đ,Nội thất,Xa xỉ
+175,Dầu ăn Tường An 250ml,152,78.000đ,Thực phẩm,Bình dân
+176,Xe đạp Giant ATX size 40,52,5.077.000đ,Thể thao,Xa xỉ
+177,Kệ sách Hòa Phát màu trắng sữa,218,2.921.000đ,Nội thất,Xa xỉ
+178,Áo khoác Adidas màu đen,473,1.362.000đ,Thời trang,Cao cấp
+179,Sách lịch sử Việt Nam Sử Lược Tập 1,319,230.000đ,Sách,Tầm trung
+180,Sách nấu ăn Ẩm Thực 3 Miền Tập 1,19,112.000đ,Sách,Tầm trung
+181,Sách kỹ năng Dám Bị Ghét Tập 2,487,235.000đ,Sách,Tầm trung
+182,Gương IKEA HEMNES màu đen mờ,15,2.056.000đ,Nội thất,Xa xỉ
+183,Vợt tennis Yonex EZONE màu đen/đỏ,223,7.864.000đ,Thể thao,Xa xỉ
+184,Snack Lays 250ml,217,30.000đ,Thực phẩm,Bình dân
+185,Chuột gaming SteelSeries Rival 250i,4,2.217.000đ,Điện tử,Xa xỉ
+186,Sữa TH True Milk thùng 24 lon,301,201.000đ,Thực phẩm,Tầm trung
+187,Dầu ăn Tường An hộp 24 gói,423,84.000đ,Thực phẩm,Bình dân
+188,Dầu ăn Meizan 500g,57,35.000đ,Thực phẩm,Bình dân
+189,Tạ tay CAP Barbell màu đen/đỏ,388,2.144.000đ,Thể thao,Xa xỉ
+190,Giày chạy bộ Adidas Ultraboost size 38,252,4.453.000đ,Thể thao,Xa xỉ
+191,Sofa Hòa Phát màu oak,432,23.887.000đ,Nội thất,Xa xỉ
+192,Bóng đá Adidas Tango size 40,1,486.000đ,Thể thao,Tầm trung
+193,Áo khoác Columbia màu đen,144,2.402.000đ,Thời trang,Xa xỉ
+194,Tủ quần áo IKEA PAX màu oak,489,2.014.000đ,Nội thất,Xa xỉ
+195,Tiểu thuyết Mắt Biếc - Ấn Bản Đặc Biệt,177,136.000đ,Sách,Tầm trung
+196,Điện thoại Vivo V Pro 8,309,28.488.000đ,Điện tử,Xa xỉ
+197,Trà Cozy 1kg,322,102.000đ,Thực phẩm,Tầm trung
+198,Áo thun Owen size M,206,352.000đ,Thời trang,Tầm trung
+199,Áo khoác Columbia màu trắng,417,686.000đ,Thời trang,Cao cấp
+200,Ghế văn phòng Ergohuman màu trắng sữa,110,20.873.000đ,Nội thất,Xa xỉ
+201,Sữa Dutch Lady 500ml,280,128.000đ,Thực phẩm,Tầm trung
+202,Loa Bluetooth Bose SoundLink Plus 250,493,1.852.000đ,Điện tử,Cao cấp
+203,Vợt cầu lông Kawasaki size 42,471,1.809.000đ,Thể thao,Cao cấp
+204,Túi xách Tumi size S,407,11.082.000đ,Thời trang,Xa xỉ
+205,Điện thoại Xiaomi Redmi Series 200,137,31.294.000đ,Điện tử,Xa xỉ
+206,Loa Bluetooth Marshall Emberton 64i,146,1.709.000đ,Điện tử,Cao cấp
+207,Đồng hồ thời trang Seiko Presage size XL,414,2.403.000đ,Thời trang,Xa xỉ
+208,Smartwatch Apple Watch Pro 500,50,8.006.000đ,Điện tử,Xa xỉ
+209,Snack Oishi hộp 24 gói,475,14.000đ,Thực phẩm,Bình dân
+210,Gạo Bắc Hương 500ml,338,48.000đ,Thực phẩm,Bình dân
+211,Sofa Ashley màu walnut,37,7.700.000đ,Nội thất,Xa xỉ
+212,Đèn bàn Xiaomi MIJIA bộ 2 cái,469,1.135.000đ,Nội thất,Cao cấp
+213,Găng tay boxing Twins màu đen/đỏ,201,1.229.000đ,Thể thao,Cao cấp
+214,Nước mắm Chin-su lốc 4 hộp,247,116.000đ,Thực phẩm,Tầm trung
+215,Chuột gaming SteelSeries Rival Pro 100,269,819.000đ,Điện tử,Cao cấp
+216,Sách kinh tế Nghĩ Giàu Làm Giàu Tập 3,142,118.000đ,Sách,Tầm trung
+217,Áo thun Owen màu trắng,89,161.000đ,Thời trang,Tầm trung
+218,Kệ sách Nội thất Duy Phát màu trắng sữa,467,4.318.000đ,Nội thất,Xa xỉ
+219,Tiểu thuyết Mắt Biếc - Ấn Bản Đặc Biệt,115,238.000đ,Sách,Tầm trung
+220,Sách tâm lý Nghệ Thuật Tinh Tế Tập 3,277,258.000đ,Sách,Tầm trung
+221,Smartwatch Garmin Forerunner Pro 100,372,12.513.000đ,Điện tử,Xa xỉ
+222,Áo khoác Nike màu navy,425,785.000đ,Thời trang,Cao cấp
+223,Túi xách Chanel màu đen,182,8.880.000đ,Thời trang,Xa xỉ
+224,Sữa Vinamilk 1kg,260,242.000đ,Thực phẩm,Tầm trung
+225,Sách tâm lý Tâm Lý Học Đám Đông (Tái Bản),227,172.000đ,Sách,Tầm trung
+226,Cà phê Vinacafé 500ml,134,235.000đ,Thực phẩm,Tầm trung
+227,Kệ sách Nội thất Duy Phát màu oak,421,1.646.000đ,Nội thất,Cao cấp
+228,Bóng đá Mikasa màu đen/vàng,351,510.000đ,Thể thao,Cao cấp
+229,Giày sneaker Adidas Stan Smith size L,31,1.203.000đ,Thời trang,Cao cấp
+230,Thảm trải sàn IKEA ÅDUM bộ 4 cái,54,3.679.000đ,Nội thất,Xa xỉ
+231,Áo thể thao Puma Dry Cell size 44,391,912.000đ,Thể thao,Cao cấp
+232,Gạo Gạo ST25 500g,136,77.000đ,Thực phẩm,Bình dân
+233,Sách giáo khoa Toán 12 Tập 1,280,60.000đ,Sách,Bình dân
+234,Kệ sách IKEA KALLAX bộ 2 cái,485,4.823.000đ,Nội thất,Xa xỉ
+235,Gạo Jasmine túi 2kg,25,97.000đ,Thực phẩm,Bình dân
+236,Sách kinh tế Đầu Tư Thông Minh (Bìa Cứng),109,74.000đ,Sách,Bình dân
+237,Sữa Vinamilk lốc 4 hộp,245,59.000đ,Thực phẩm,Bình dân
+238,Gương IKEA HEMNES màu oak,412,628.000đ,Nội thất,Cao cấp
+239,Màn hình LG UltraWide Pro 64,103,19.060.000đ,Điện tử,Xa xỉ
+240,Xe đạp Asama size 42,311,4.955.000đ,Thể thao,Xa xỉ
+241,Váy H&M màu navy,437,1.276.000đ,Thời trang,Cao cấp
+242,Sofa IKEA KIVIK bộ 2 cái,202,22.887.000đ,Nội thất,Xa xỉ
+243,Quần jean G-Star Raw size S,199,629.000đ,Thời trang,Cao cấp
+244,Sách lịch sử Homo Deus (Bìa Mềm),371,72.000đ,Sách,Bình dân
+245,Màn hình Dell UltraSharp Series 16,371,16.645.000đ,Điện tử,Xa xỉ
+246,Mũ Dickies màu navy,155,411.000đ,Thời trang,Tầm trung
+247,Sách tâm lý Tâm Lý Học Đám Đông Tập 3,288,105.000đ,Sách,Tầm trung
+248,Áo khoác Columbia size L,180,1.742.000đ,Thời trang,Cao cấp
+249,Xe đạp Asama màu xanh/trắng,108,2.470.000đ,Thể thao,Xa xỉ
+250,Tạ tay Bowflex màu xanh/trắng,425,1.341.000đ,Thể thao,Cao cấp
+251,Rèm cửa Vải Thành Công bộ 2 cái,402,2.549.000đ,Nội thất,Xa xỉ
+252,Sách kinh tế Cha Giàu Cha Nghèo Tập 3,124,224.000đ,Sách,Tầm trung
+253,Từ điển Oxford Advanced - Ấn Bản Đặc Biệt,439,177.000đ,Sách,Tầm trung
+254,Nước mắm Nam Ngư 1 lít,170,102.000đ,Thực phẩm,Tầm trung
+255,Mì ăn liền Indomie túi 2kg,318,45.000đ,Thực phẩm,Bình dân
+256,Giày chạy bộ Brooks Ghost màu đen/đỏ,82,851.000đ,Thể thao,Cao cấp
+257,Dây nhảy Jumping Pro size 42,144,235.000đ,Thể thao,Tầm trung
+258,Nước mắm Nam Ngư 1kg,452,100.000đ,Thực phẩm,Bình dân
+259,Giày sneaker New Balance 574 size M,363,423.000đ,Thời trang,Tầm trung
+260,Rèm cửa Vải Thành Công màu oak,39,1.861.000đ,Nội thất,Cao cấp
+261,Găng tay boxing Fairtex size 38,6,1.702.000đ,Thể thao,Cao cấp
+262,Giày sneaker Vans Old Skool màu trắng,375,3.853.000đ,Thời trang,Xa xỉ
+263,Rèm cửa JYSK bộ 4 cái,486,1.523.000đ,Nội thất,Cao cấp
+264,Áo thể thao Puma Dry Cell màu xanh/trắng,49,433.000đ,Thể thao,Tầm trung
+265,Dầu ăn Simply 250ml,387,142.000đ,Thực phẩm,Tầm trung
+266,Giường ngủ Kim Tiền bộ 2 cái,126,16.205.000đ,Nội thất,Xa xỉ
+267,Sofa Ashley bộ 2 cái,29,28.015.000đ,Nội thất,Xa xỉ
+268,Điện thoại Vivo V Ultra 64,422,28.399.000đ,Điện tử,Xa xỉ
+269,Nước mắm Chin-su 1 lít,15,97.000đ,Thực phẩm,Bình dân
+270,Sách thiếu nhi Shin Cậu Bé Bút Chì - Ấn Bản Đặc Biệt,356,131.000đ,Sách,Tầm trung
+271,Loa Bluetooth Marshall Emberton Pro 8,1,2.656.000đ,Điện tử,Xa xỉ
+272,Vợt cầu lông Victor Thruster màu đen/vàng,469,4.668.000đ,Thể thao,Xa xỉ
+273,Sách kinh tế Đầu Tư Thông Minh Tập 1,437,226.000đ,Sách,Tầm trung
+274,Bàn phím cơ Logitech MX Keys 250X,484,3.743.000đ,Điện tử,Xa xỉ
+275,Giày chạy bộ Adidas Ultraboost size 42,59,3.444.000đ,Thể thao,Xa xỉ
+276,Áo khoác Adidas màu đen,339,1.144.000đ,Thời trang,Cao cấp
+277,Sách giáo khoa Vật Lý 11 (Bìa Mềm),54,75.000đ,Sách,Bình dân
+278,Xe đạp Giant ATX size 40,234,8.142.000đ,Thể thao,Xa xỉ
+279,Gia vị Cholimex 200g,291,97.000đ,Thực phẩm,Bình dân
+280,Sách nấu ăn Ẩm Thực 3 Miền Tập 3,232,85.000đ,Sách,Bình dân
+281,Đồng hồ thời trang MVMT size S,172,7.669.000đ,Thời trang,Xa xỉ
+282,Sách tâm lý Tâm Lý Học Đám Đông Tập 2,498,265.000đ,Sách,Tầm trung
+283,Sách lịch sử Lịch Sử Thế Giới (Bìa Cứng),405,65.000đ,Sách,Bình dân
+284,Smartwatch Xiaomi Smart Band Pro 8,65,2.852.000đ,Điện tử,Xa xỉ
+285,Giường ngủ IKEA MALM bộ 4 cái,69,4.063.000đ,Nội thất,Xa xỉ
+286,Áo thun Routine màu trắng,433,213.000đ,Thời trang,Tầm trung
+287,Trà Cozy 500ml,289,105.000đ,Thực phẩm,Tầm trung
+288,Giày cao gót Steve Madden màu navy,8,2.433.000đ,Thời trang,Xa xỉ
+289,Giày chạy bộ Asics Gel-Kayano size 40,311,2.795.000đ,Thể thao,Xa xỉ
+290,Nước mắm Chin-su hộp 24 gói,260,35.000đ,Thực phẩm,Bình dân
+291,Sách kỹ năng Mindset (Bìa Mềm),314,149.000đ,Sách,Tầm trung
+292,Kệ sách Hòa Phát màu walnut,444,4.456.000đ,Nội thất,Xa xỉ
+293,Giày sneaker Converse Chuck Taylor size XL,54,439.000đ,Thời trang,Tầm trung
+294,Vợt tennis Head Gravity màu đen/vàng,160,7.787.000đ,Thể thao,Xa xỉ
+295,Rèm cửa IKEA MERETE màu oak,434,991.000đ,Nội thất,Cao cấp
+296,Sữa Vinamilk hộp 24 gói,37,316.000đ,Thực phẩm,Tầm trung
+297,Sách kinh tế Nghĩ Giàu Làm Giàu (Tái Bản),133,212.000đ,Sách,Tầm trung
+298,Cà phê Vinacafé thùng 24 lon,207,361.000đ,Thực phẩm,Tầm trung
+299,Điện thoại iPhone 16i,219,25.576.000đ,Điện tử,Xa xỉ
+300,Bàn phím cơ Corsair K Pro 64,415,3.319.000đ,Điện tử,Xa xỉ
+301,Mũ Vans màu trắng,199,289.000đ,Thời trang,Tầm trung
+302,Cà phê G7 túi 2kg,10,84.000đ,Thực phẩm,Bình dân
+303,Snack Lays 250ml,138,24.000đ,Thực phẩm,Bình dân
+304,Điện thoại Samsung Galaxy 32X,270,30.731.000đ,Điện tử,Xa xỉ
+305,Thảm trải sàn Carpet One bộ 4 cái,304,324.000đ,Nội thất,Tầm trung
+306,Màn hình Asus ProArt Ultra 250,53,10.151.000đ,Điện tử,Xa xỉ
+307,Dầu ăn Neptune thùng 24 lon,210,106.000đ,Thực phẩm,Tầm trung
+308,Chuột gaming Razer DeathAdder Ultra 500,174,395.000đ,Điện tử,Tầm trung
+309,Nước mắm Chin-su 200g,498,56.000đ,Thực phẩm,Bình dân
+310,Gia vị Maggi thùng 24 lon,14,43.000đ,Thực phẩm,Bình dân
+311,Sách kinh tế Cha Giàu Cha Nghèo - Ấn Bản Đặc Biệt,226,175.000đ,Sách,Tầm trung
+312,Quần jean Routine màu navy,389,928.000đ,Thời trang,Cao cấp
+313,Từ điển Oxford Advanced (Bìa Cứng),248,288.000đ,Sách,Tầm trung
+314,Máy tính bảng Samsung Galaxy Tab Pro 16,17,22.122.000đ,Điện tử,Xa xỉ
+315,Tủ quần áo Xuân Hòa bộ 2 cái,347,10.947.000đ,Nội thất,Xa xỉ
+316,Dầu ăn Tường An hộp 24 gói,116,137.000đ,Thực phẩm,Tầm trung
+317,Áo thun Owen màu navy,60,502.000đ,Thời trang,Cao cấp
+318,Bóng đá Mikasa size 42,85,617.000đ,Thể thao,Cao cấp
+319,Kính mắt Oakley size S,103,2.083.000đ,Thời trang,Xa xỉ
+320,Đồng hồ thời trang Daniel Wellington màu navy,387,1.243.000đ,Thời trang,Cao cấp
+321,Màn hình Dell UltraSharp 16X,29,8.327.000đ,Điện tử,Xa xỉ
+322,Găng tay boxing Twins size 40,91,727.000đ,Thể thao,Cao cấp
+323,Bàn phím cơ Corsair K Pro 100,421,4.483.000đ,Điện tử,Xa xỉ
+324,Mì ăn liền Kokomi túi 2kg,410,9.000đ,Thực phẩm,Bình dân
+325,Thảm trải sàn IKEA ÅDUM bộ 4 cái,89,898.000đ,Nội thất,Cao cấp
+326,Bàn làm việc Hòa Phát bộ 2 cái,75,12.765.000đ,Nội thất,Xa xỉ
+327,Xe đạp Giant ATX size 44,127,18.164.000đ,Thể thao,Xa xỉ
+328,Sữa Dutch Lady 200g,360,155.000đ,Thực phẩm,Tầm trung
+329,Smartwatch Samsung Galaxy Watch Pro 64,334,13.119.000đ,Điện tử,Xa xỉ
+330,Sách lập trình Python Crash Course Tập 2,363,207.000đ,Sách,Tầm trung
+331,Điện thoại Samsung Galaxy Series 8,366,17.154.000đ,Điện tử,Xa xỉ
+332,Gạo Nàng Hoa 1kg,406,180.000đ,Thực phẩm,Tầm trung
+333,Giày chạy bộ Brooks Ghost size 44,126,4.232.000đ,Thể thao,Xa xỉ
+334,Bóng đá Mikasa size 42,239,684.000đ,Thể thao,Cao cấp
+335,Loa Bluetooth Marshall Emberton Ultra 100,204,4.452.000đ,Điện tử,Xa xỉ
+336,Điện thoại iPhone Pro 200,450,28.212.000đ,Điện tử,Xa xỉ
+337,Thảm trải sàn Carpet One màu trắng sữa,399,935.000đ,Nội thất,Cao cấp
+338,Bàn làm việc IKEA LINNMON màu trắng sữa,150,10.975.000đ,Nội thất,Xa xỉ
+339,Áo khoác Nike màu navy,112,2.411.000đ,Thời trang,Xa xỉ
+340,Đèn bàn IKEA FORSÅ bộ 2 cái,131,173.000đ,Nội thất,Tầm trung
+341,Nước mắm Phú Quốc hộp 24 gói,298,25.000đ,Thực phẩm,Bình dân
+342,Snack Doritos 500g,249,56.000đ,Thực phẩm,Bình dân
+343,Quần jean Routine size M,204,769.000đ,Thời trang,Cao cấp
+344,Kính mắt Gentle Monster màu đen,188,3.688.000đ,Thời trang,Xa xỉ
+345,Sách kỹ năng 7 Thói Quen Hiệu Quả (Bìa Mềm),43,62.000đ,Sách,Bình dân
+346,Tiểu thuyết Nhà Giả Kim (Tái Bản),318,284.000đ,Sách,Tầm trung
+347,Sách kinh tế Nghĩ Giàu Làm Giàu - Ấn Bản Đặc Biệt,400,193.000đ,Sách,Tầm trung
+348,Sách lịch sử Lịch Sử Thế Giới (Bìa Mềm),413,230.000đ,Sách,Tầm trung
+349,Rèm cửa JYSK màu walnut,171,1.237.000đ,Nội thất,Cao cấp
+350,Máy ảnh Fujifilm X 200X,328,35.877.000đ,Điện tử,Xa xỉ
+351,Xe đạp Asama size 40,5,23.154.000đ,Thể thao,Xa xỉ
+352,Từ điển Longman Dictionary (Tái Bản),408,289.000đ,Sách,Tầm trung
+353,Smartwatch Garmin Forerunner Ultra 32,277,9.481.000đ,Điện tử,Xa xỉ
+354,Trà Cozy 500ml,109,174.000đ,Thực phẩm,Tầm trung
+355,Găng tay boxing Twins màu đen/đỏ,363,467.000đ,Thể thao,Tầm trung
+356,Gia vị Cholimex 250ml,92,65.000đ,Thực phẩm,Bình dân
+357,Sách nấu ăn Ẩm Thực 3 Miền - Ấn Bản Đặc Biệt,482,212.000đ,Sách,Tầm trung
+358,Gạo Bắc Hương hộp 24 gói,39,101.000đ,Thực phẩm,Tầm trung
+359,Giày cao gót Nine West màu trắng,48,2.217.000đ,Thời trang,Xa xỉ
+360,Kính mắt Gucci size M,433,3.896.000đ,Thời trang,Xa xỉ
+361,Dụng cụ yoga Adidas size 42,154,268.000đ,Thể thao,Tầm trung
+362,Sách giáo khoa Hóa Học 10 - Ấn Bản Đặc Biệt,201,84.000đ,Sách,Bình dân
+363,Vợt cầu lông Kawasaki size 40,130,1.787.000đ,Thể thao,Cao cấp
+364,Bàn phím cơ Razer BlackWidow Pro 64,351,3.742.000đ,Điện tử,Xa xỉ
+365,Tạ tay PowerBlock size 38,463,1.785.000đ,Thể thao,Cao cấp
+366,Tạ tay CAP Barbell size 40,247,215.000đ,Thể thao,Tầm trung
+367,Gạo Gạo ST25 hộp 24 gói,85,152.000đ,Thực phẩm,Tầm trung
+368,Sách kỹ năng Mindset (Bìa Mềm),124,204.000đ,Sách,Tầm trung
+369,Kệ sách IKEA KALLAX màu walnut,171,3.945.000đ,Nội thất,Xa xỉ
+370,Ghế văn phòng Ergohuman màu đen mờ,388,14.270.000đ,Nội thất,Xa xỉ
+371,Giường ngủ Kim Tiền màu đen mờ,198,3.221.000đ,Nội thất,Xa xỉ
+372,Sofa JYSK bộ 2 cái,73,5.196.000đ,Nội thất,Xa xỉ
+373,Dây nhảy Everlast size 42,314,53.000đ,Thể thao,Bình dân
+374,Gia vị Ajinomoto 500g,257,74.000đ,Thực phẩm,Bình dân
+375,Đồng hồ thời trang Fossil màu trắng,448,1.871.000đ,Thời trang,Cao cấp
+376,Nước mắm Chin-su hộp 24 gói,241,63.000đ,Thực phẩm,Bình dân
+377,Giày cao gót Steve Madden size S,86,558.000đ,Thời trang,Cao cấp
+378,Màn hình Dell UltraSharp Pro 100,120,18.791.000đ,Điện tử,Xa xỉ
+379,Gạo Jasmine 500g,330,70.000đ,Thực phẩm,Bình dân
+380,Điện thoại iPhone 64i,319,14.974.000đ,Điện tử,Xa xỉ
+381,Sách nấu ăn Ẩm Thực 3 Miền (Bìa Mềm),344,127.000đ,Sách,Tầm trung
+382,Găng tay boxing Hayabusa size 42,221,1.014.000đ,Thể thao,Cao cấp
+383,Bàn làm việc Herman Miller bộ 2 cái,454,14.162.000đ,Nội thất,Xa xỉ
+384,Gia vị Cholimex 500ml,47,30.000đ,Thực phẩm,Bình dân
+385,Vợt tennis Babolat Pure Drive size 42,13,4.402.000đ,Thể thao,Xa xỉ
+386,Cà phê Highlands Coffee thùng 24 lon,306,282.000đ,Thực phẩm,Tầm trung
+387,Sách giáo khoa Hóa Học 10 (Bìa Mềm),71,78.000đ,Sách,Bình dân
+388,Nước mắm Phú Quốc 1 lít,237,89.000đ,Thực phẩm,Bình dân
+389,Sách kỹ năng 7 Thói Quen Hiệu Quả Tập 3,188,297.000đ,Sách,Tầm trung
+390,Mũ Vans size M,204,223.000đ,Thời trang,Tầm trung
+391,Chuột gaming SteelSeries Rival Plus 32,422,1.146.000đ,Điện tử,Cao cấp
+392,Gương La Redoute màu trắng sữa,313,1.649.000đ,Nội thất,Cao cấp
+393,Bánh kẹo Pocky 500g,259,147.000đ,Thực phẩm,Tầm trung
+394,Tủ quần áo Xuân Hòa màu walnut,325,1.607.000đ,Nội thất,Cao cấp
+395,Mũ MLB màu trắng,98,180.000đ,Thời trang,Tầm trung
+396,Bàn làm việc IKEA LINNMON màu đen mờ,231,9.096.000đ,Nội thất,Xa xỉ
+397,Snack Oishi túi 2kg,137,70.000đ,Thực phẩm,Bình dân
+398,Máy tính bảng iPad Ultra 32,378,12.641.000đ,Điện tử,Xa xỉ
+399,Giường ngủ Nội thất An Lành màu trắng sữa,175,15.978.000đ,Nội thất,Xa xỉ
+400,Áo thể thao Nike Dri-FIT màu đen/vàng,180,551.000đ,Thể thao,Cao cấp
+401,Áo khoác Columbia màu trắng,70,385.000đ,Thời trang,Tầm trung
+402,Gia vị Ajinomoto 250ml,314,52.000đ,Thực phẩm,Bình dân
+403,Bàn phím cơ Razer BlackWidow 16X,87,3.705.000đ,Điện tử,Xa xỉ
+404,Giày cao gót Steve Madden màu đen,402,733.000đ,Thời trang,Cao cấp
+405,Sách nấu ăn Món Ngon Mỗi Ngày (Tái Bản),492,70.000đ,Sách,Bình dân
+406,Dụng cụ yoga Gaiam màu đen/đỏ,132,1.315.000đ,Thể thao,Cao cấp
+407,Sách nấu ăn Ẩm Thực 3 Miền Tập 3,95,100.000đ,Sách,Bình dân
+408,Giường ngủ JYSK Maribo màu trắng sữa,242,4.148.000đ,Nội thất,Xa xỉ
+409,Điện thoại Samsung Galaxy Pro 100,132,5.922.000đ,Điện tử,Xa xỉ
+410,Áo thể thao Nike Dri-FIT size 40,82,907.000đ,Thể thao,Cao cấp
+411,Mì ăn liền Kokomi túi 2kg,257,56.000đ,Thực phẩm,Bình dân
+412,Vợt tennis Wilson Blade màu xanh/trắng,171,2.755.000đ,Thể thao,Xa xỉ
+413,Loa Bluetooth Bose SoundLink 250i,435,673.000đ,Điện tử,Cao cấp
+414,Cà phê Highlands Coffee 200g,270,312.000đ,Thực phẩm,Tầm trung
+415,Bàn làm việc Hòa Phát màu oak,4,11.973.000đ,Nội thất,Xa xỉ
+416,Bàn làm việc Hòa Phát bộ 2 cái,129,10.852.000đ,Nội thất,Xa xỉ
+417,Gia vị Knorr túi 2kg,460,72.000đ,Thực phẩm,Bình dân
+418,Tiểu thuyết Đắc Nhân Tâm Tập 1,363,192.000đ,Sách,Tầm trung
+419,Sách kinh tế Đầu Tư Thông Minh Tập 3,220,183.000đ,Sách,Tầm trung
+420,Sách nấu ăn Ẩm Thực 3 Miền - Ấn Bản Đặc Biệt,54,230.000đ,Sách,Tầm trung
+421,Bàn làm việc Hòa Phát bộ 4 cái,79,9.220.000đ,Nội thất,Xa xỉ
+422,Kệ sách Nội thất Duy Phát màu oak,44,3.071.000đ,Nội thất,Xa xỉ
+423,Mì ăn liền 3 Miền 250ml,83,67.000đ,Thực phẩm,Bình dân
+424,Sofa Nội thất Xanh bộ 4 cái,64,20.463.000đ,Nội thất,Xa xỉ
+425,Quần jean Levi's màu navy,247,1.106.000đ,Thời trang,Cao cấp
+426,Đèn bàn IKEA FORSÅ màu trắng sữa,249,691.000đ,Nội thất,Cao cấp
+427,Máy ảnh Sony Alpha Plus 500,441,13.245.000đ,Điện tử,Xa xỉ
+428,Từ điển Longman Dictionary Tập 3,1,477.000đ,Sách,Tầm trung
+429,Thảm trải sàn Carpet One bộ 4 cái,202,1.882.000đ,Nội thất,Cao cấp
+430,Ghế văn phòng Herman Miller Aeron bộ 2 cái,436,11.811.000đ,Nội thất,Xa xỉ
+431,Ghế văn phòng Hòa Phát HCG màu đen mờ,86,9.923.000đ,Nội thất,Xa xỉ
+432,Tạ tay CAP Barbell màu đen/đỏ,133,2.877.000đ,Thể thao,Xa xỉ
+433,Sách kỹ năng Mindset (Bìa Mềm),104,145.000đ,Sách,Tầm trung
+434,Chuột gaming Razer DeathAdder Plus 200,114,470.000đ,Điện tử,Tầm trung
+435,Dụng cụ yoga Manduka PRO size 42,124,988.000đ,Thể thao,Cao cấp
+436,Từ điển Oxford Advanced (Tái Bản),87,361.000đ,Sách,Tầm trung
+437,Đèn bàn Philips bộ 4 cái,240,501.000đ,Nội thất,Cao cấp
+438,Mũ Dickies size M,370,478.000đ,Thời trang,Tầm trung
+439,Xe đạp Giant ATX size 38,66,12.231.000đ,Thể thao,Xa xỉ
+440,Gia vị Maggi 500ml,86,63.000đ,Thực phẩm,Bình dân
+441,Sách kinh tế Nghĩ Giàu Làm Giàu (Tái Bản),194,101.000đ,Sách,Tầm trung
+442,Tủ quần áo Hòa Phát màu trắng sữa,144,14.327.000đ,Nội thất,Xa xỉ
+443,Dầu ăn Tường An 500ml,230,55.000đ,Thực phẩm,Bình dân
+444,Tiểu thuyết Nhà Giả Kim Tập 3,40,130.000đ,Sách,Tầm trung
+445,Sách tâm lý Người Đàn Ông Tìm Kiếm Ý Nghĩa (Bìa Cứng),243,252.000đ,Sách,Tầm trung
+446,Mũ MLB màu navy,160,357.000đ,Thời trang,Tầm trung
+447,Máy tính bảng Xiaomi Pad 64X,325,15.120.000đ,Điện tử,Xa xỉ
+448,Gia vị Ajinomoto 250ml,191,87.000đ,Thực phẩm,Bình dân
+449,Giường ngủ Nội thất An Lành màu oak,308,17.840.000đ,Nội thất,Xa xỉ
+450,Bàn làm việc Hòa Phát màu walnut,394,8.870.000đ,Nội thất,Xa xỉ
+451,Sách kinh tế Nghĩ Giàu Làm Giàu (Tái Bản),395,116.000đ,Sách,Tầm trung
+452,Kệ sách Nội thất Duy Phát bộ 4 cái,47,1.998.000đ,Nội thất,Cao cấp
+453,Thảm trải sàn IKEA ÅDUM màu oak,209,4.481.000đ,Nội thất,Xa xỉ
+454,Đồng hồ thời trang Daniel Wellington size XL,402,2.782.000đ,Thời trang,Xa xỉ
+455,Điện thoại Xiaomi Redmi Series 250,341,19.368.000đ,Điện tử,Xa xỉ
+456,Giường ngủ IKEA MALM bộ 2 cái,164,19.562.000đ,Nội thất,Xa xỉ
+457,Snack Poca thùng 24 lon,157,68.000đ,Thực phẩm,Bình dân
+458,Áo thể thao Under Armour size 40,464,502.000đ,Thể thao,Cao cấp
+459,Ghế văn phòng Herman Miller Aeron bộ 2 cái,19,14.554.000đ,Nội thất,Xa xỉ
+460,Dầu ăn Tường An 1 lít,286,131.000đ,Thực phẩm,Tầm trung
+461,Váy Zara size XL,404,150.000đ,Thời trang,Tầm trung
+462,Trà Lipton 500ml,78,183.000đ,Thực phẩm,Tầm trung
+463,Tiểu thuyết Tôi Thấy Hoa Vàng Trên Cỏ Xanh (Bìa Cứng),473,180.000đ,Sách,Tầm trung
+464,Điện thoại OPPO Reno Ultra 250,283,4.919.000đ,Điện tử,Xa xỉ
+465,Loa Bluetooth Marshall Emberton Series 200,473,3.298.000đ,Điện tử,Xa xỉ
+466,Sách lập trình Eloquent JavaScript Tập 2,131,189.000đ,Sách,Tầm trung
+467,Quần jean G-Star Raw size L,21,611.000đ,Thời trang,Cao cấp
+468,Bàn làm việc Hòa Phát màu oak,496,7.754.000đ,Nội thất,Xa xỉ
+469,Bóng đá Molten màu đen/đỏ,97,603.000đ,Thể thao,Cao cấp
+470,Loa Bluetooth Marshall Emberton Pro 250,362,3.101.000đ,Điện tử,Xa xỉ
+471,Sách giáo khoa Ngữ Văn 9 (Bìa Mềm),339,108.000đ,Sách,Tầm trung
+472,Tiểu thuyết Tôi Thấy Hoa Vàng Trên Cỏ Xanh (Bìa Cứng),176,105.000đ,Sách,Tầm trung
+473,Máy tính bảng Lenovo Tab Pro 500,264,21.989.000đ,Điện tử,Xa xỉ
+474,Tủ quần áo Xuân Hòa màu trắng sữa,93,10.722.000đ,Nội thất,Xa xỉ
+475,Ghế văn phòng Ergohuman bộ 2 cái,283,11.384.000đ,Nội thất,Xa xỉ
+476,Giày cao gót Nine West size L,387,2.046.000đ,Thời trang,Xa xỉ
+477,Áo khoác Columbia size M,418,2.180.000đ,Thời trang,Xa xỉ
+478,Sách giáo khoa Tiếng Anh 12 (Tái Bản),45,112.000đ,Sách,Tầm trung
+479,Cà phê Highlands Coffee 1 lít,448,84.000đ,Thực phẩm,Bình dân
+480,Từ điển Lạc Việt Anh-Việt - Ấn Bản Đặc Biệt,476,238.000đ,Sách,Tầm trung
+481,Điện thoại iPhone Series 200,204,9.638.000đ,Điện tử,Xa xỉ
+482,Áo khoác The North Face size M,215,2.733.000đ,Thời trang,Xa xỉ
+483,Mì ăn liền Vifon 1 lít,255,23.000đ,Thực phẩm,Bình dân
+484,Nước mắm Phú Quốc 1kg,397,40.000đ,Thực phẩm,Bình dân
+485,Từ điển Oxford Advanced Tập 2,290,490.000đ,Sách,Tầm trung
+486,Áo thun Owen màu đen,297,401.000đ,Thời trang,Tầm trung
+487,Mì ăn liền Kokomi 200g,297,21.000đ,Thực phẩm,Bình dân
+488,Áo thun Uniqlo size XL,104,696.000đ,Thời trang,Cao cấp
+489,Sách lịch sử Homo Deus (Tái Bản),112,190.000đ,Sách,Tầm trung
+490,Sách lịch sử Homo Deus (Tái Bản),421,195.000đ,Sách,Tầm trung
+491,Ghế văn phòng Secretlab màu đen mờ,385,16.656.000đ,Nội thất,Xa xỉ
+492,Gương La Redoute màu đen mờ,428,2.143.000đ,Nội thất,Xa xỉ
+493,Quần jean Routine size M,187,1.316.000đ,Thời trang,Cao cấp
+494,Giường ngủ Kim Tiền bộ 2 cái,183,15.083.000đ,Nội thất,Xa xỉ
+495,Ghế văn phòng Secretlab màu trắng sữa,89,11.348.000đ,Nội thất,Xa xỉ
+496,Đồng hồ thời trang Fossil size M,387,7.577.000đ,Thời trang,Xa xỉ
+497,Tạ tay CAP Barbell màu xanh/trắng,350,1.491.000đ,Thể thao,Cao cấp
+498,Sữa Vinamilk túi 2kg,434,350.000đ,Thực phẩm,Tầm trung
+499,Bánh kẹo Kinh Đô thùng 24 lon,396,56.000đ,Thực phẩm,Bình dân
+500,Màn hình Asus ProArt Pro 64,24,6.945.000đ,Điện tử,Xa xỉ
+501,Tiểu thuyết Sapiens (Tái Bản),476,298.000đ,Sách,Tầm trung
+502,Cà phê Vinacafé lốc 4 hộp,390,448.000đ,Thực phẩm,Tầm trung
+503,Sữa TH True Milk 500ml,379,117.000đ,Thực phẩm,Tầm trung
+504,Áo khoác The North Face màu navy,43,1.153.000đ,Thời trang,Cao cấp
+505,Màn hình Dell UltraSharp Pro 500,329,13.332.000đ,Điện tử,Xa xỉ
+506,Cà phê Highlands Coffee thùng 24 lon,134,431.000đ,Thực phẩm,Tầm trung
+507,Bóng đá Mikasa size 38,203,344.000đ,Thể thao,Tầm trung
+508,Laptop Lenovo Thinkpad 64X,337,22.487.000đ,Điện tử,Xa xỉ
+509,Gương IKEA HEMNES màu walnut,411,2.682.000đ,Nội thất,Xa xỉ
+510,Tủ quần áo Hòa Phát màu đen mờ,33,9.808.000đ,Nội thất,Xa xỉ
+511,Sách kỹ năng Atomic Habits Tập 2,251,236.000đ,Sách,Tầm trung
+512,Sách lịch sử Sapiens - Ấn Bản Đặc Biệt,403,190.000đ,Sách,Tầm trung
+513,Rèm cửa IKEA MERETE màu oak,486,1.850.000đ,Nội thất,Cao cấp
+514,Xe đạp Specialized Rockhopper màu xanh/trắng,493,13.755.000đ,Thể thao,Xa xỉ
+515,Găng tay boxing Hayabusa màu xanh/trắng,210,1.778.000đ,Thể thao,Cao cấp
+516,Snack Lays 250ml,394,42.000đ,Thực phẩm,Bình dân
+517,Gia vị Knorr thùng 24 lon,4,84.000đ,Thực phẩm,Bình dân
+518,Vợt cầu lông Victor Thruster size 40,179,1.684.000đ,Thể thao,Cao cấp
+519,Điện thoại iPhone Pro 32,433,34.710.000đ,Điện tử,Xa xỉ
+520,Rèm cửa IKEA MERETE màu oak,3,287.000đ,Nội thất,Tầm trung
+521,Sách lập trình You Don't Know JS - Ấn Bản Đặc Biệt,491,135.000đ,Sách,Tầm trung
+522,Tai nghe Samsung Galaxy Buds Plus 32,57,3.468.000đ,Điện tử,Xa xỉ
+523,Bánh kẹo Bibica 500ml,403,27.000đ,Thực phẩm,Bình dân
+524,Cà phê Vinacafé 500g,11,314.000đ,Thực phẩm,Tầm trung
+525,Sách thiếu nhi Shin Cậu Bé Bút Chì (Bìa Mềm),330,55.000đ,Sách,Bình dân
+526,Kính mắt Gentle Monster size M,404,4.349.000đ,Thời trang,Xa xỉ
+527,Sách kỹ năng Atomic Habits (Bìa Cứng),137,243.000đ,Sách,Tầm trung
+528,Sách tâm lý Người Đàn Ông Tìm Kiếm Ý Nghĩa (Tái Bản),194,225.000đ,Sách,Tầm trung
+529,Kính mắt Oakley size M,492,752.000đ,Thời trang,Cao cấp
+530,Găng tay boxing Everlast màu đen/vàng,229,429.000đ,Thể thao,Tầm trung
+531,Sofa IKEA KIVIK màu oak,85,9.152.000đ,Nội thất,Xa xỉ
+532,Giày cao gót Charles & Keith màu trắng,497,1.223.000đ,Thời trang,Cao cấp
+533,Gạo Bắc Hương hộp 24 gói,85,191.000đ,Thực phẩm,Tầm trung
+534,Giường ngủ Kim Tiền màu walnut,472,9.052.000đ,Nội thất,Xa xỉ
+535,Áo thể thao Nike Dri-FIT size 38,243,872.000đ,Thể thao,Cao cấp
+536,Áo khoác Columbia size L,248,2.580.000đ,Thời trang,Xa xỉ
+537,Kệ sách Hòa Phát bộ 4 cái,173,4.572.000đ,Nội thất,Xa xỉ
+538,Dầu ăn Meizan 1kg,347,143.000đ,Thực phẩm,Tầm trung
+539,Màn hình Asus ProArt 100i,201,6.142.000đ,Điện tử,Xa xỉ
+540,Vợt cầu lông Victor Thruster size 42,283,4.261.000đ,Thể thao,Xa xỉ
+541,Áo khoác The North Face size S,251,826.000đ,Thời trang,Cao cấp
+542,Áo thun Uniqlo size S,25,220.000đ,Thời trang,Tầm trung
+543,Sách lập trình Clean Code (Bìa Cứng),30,264.000đ,Sách,Tầm trung
+544,Áo thể thao Under Armour màu xanh/trắng,195,386.000đ,Thể thao,Tầm trung
+545,Bàn phím cơ Keychron K 16X,90,2.253.000đ,Điện tử,Xa xỉ
+546,Dụng cụ yoga Liforme màu xanh/trắng,359,738.000đ,Thể thao,Cao cấp
+547,Giày chạy bộ Asics Gel-Kayano màu đen/vàng,115,2.762.000đ,Thể thao,Xa xỉ
+548,Sách lập trình Eloquent JavaScript (Bìa Mềm),215,394.000đ,Sách,Tầm trung
+549,Loa Bluetooth Bose SoundLink 32i,184,2.975.000đ,Điện tử,Xa xỉ
+550,Tủ quần áo Xuân Hòa màu walnut,34,6.718.000đ,Nội thất,Xa xỉ
+551,Giường ngủ Kim Tiền màu đen mờ,114,4.868.000đ,Nội thất,Xa xỉ
+552,Kính mắt Ray-Ban size XL,102,2.964.000đ,Thời trang,Xa xỉ
+553,Bàn phím cơ Keychron K 250i,338,2.953.000đ,Điện tử,Xa xỉ
+554,Xe đạp Asama size 38,59,22.754.000đ,Thể thao,Xa xỉ
+555,Sách kinh tế Nghĩ Giàu Làm Giàu - Ấn Bản Đặc Biệt,29,215.000đ,Sách,Tầm trung
+556,Thảm trải sàn Hòa Bình bộ 4 cái,407,1.216.000đ,Nội thất,Cao cấp
+557,Giường ngủ IKEA MALM màu đen mờ,237,3.357.000đ,Nội thất,Xa xỉ
+558,Máy tính bảng Xiaomi Pad 32i,174,5.238.000đ,Điện tử,Xa xỉ
+559,Bóng đá Adidas Tango size 38,77,231.000đ,Thể thao,Tầm trung
+560,Dầu ăn Simply túi 2kg,68,70.000đ,Thực phẩm,Bình dân
+561,Quần jean Levi's size L,198,1.320.000đ,Thời trang,Cao cấp
+562,Váy Mango size L,15,607.000đ,Thời trang,Cao cấp
+563,Bánh kẹo Oreo túi 2kg,205,107.000đ,Thực phẩm,Tầm trung
+564,Găng tay boxing Twins size 40,3,1.022.000đ,Thể thao,Cao cấp
+565,Dây nhảy Jumping Pro size 40,309,53.000đ,Thể thao,Bình dân
+566,Sách thiếu nhi Harry Potter - Ấn Bản Đặc Biệt,212,125.000đ,Sách,Tầm trung
+567,Loa Bluetooth Sony SRS 8X,65,4.922.000đ,Điện tử,Xa xỉ
+568,Chuột gaming Razer DeathAdder 32i,308,2.521.000đ,Điện tử,Xa xỉ
+569,Thảm trải sàn IKEA ÅDUM màu đen mờ,345,488.000đ,Nội thất,Tầm trung
+570,Túi xách Chanel màu navy,88,9.713.000đ,Thời trang,Xa xỉ
+571,Sofa Hòa Phát màu trắng sữa,112,23.013.000đ,Nội thất,Xa xỉ
+572,Bóng đá Mikasa size 42,230,552.000đ,Thể thao,Cao cấp
+573,Sách giáo khoa Hóa Học 10 (Tái Bản),246,117.000đ,Sách,Tầm trung
+574,Giày chạy bộ Brooks Ghost size 38,448,1.797.000đ,Thể thao,Cao cấp
+575,Chuột gaming Zowie EC 8i,477,414.000đ,Điện tử,Tầm trung
+576,Dây nhảy Adidas size 42,220,266.000đ,Thể thao,Tầm trung
+577,Kệ sách IKEA KALLAX màu trắng sữa,63,3.935.000đ,Nội thất,Xa xỉ
+578,Cà phê Trung Nguyên Legend 1 lít,413,165.000đ,Thực phẩm,Tầm trung
+579,Gia vị Cholimex hộp 24 gói,235,19.000đ,Thực phẩm,Bình dân
+580,Snack Lays thùng 24 lon,397,25.000đ,Thực phẩm,Bình dân
+581,Máy ảnh Sony Alpha Series 500,93,42.737.000đ,Điện tử,Xa xỉ
+582,Gạo Gạo ST25 250ml,255,199.000đ,Thực phẩm,Tầm trung
+583,Sách thiếu nhi Doraemon Tập 1,462,140.000đ,Sách,Tầm trung
+584,Sách nấu ăn Món Ngon Mỗi Ngày - Ấn Bản Đặc Biệt,298,220.000đ,Sách,Tầm trung
+585,Bàn làm việc Herman Miller màu đen mờ,452,10.635.000đ,Nội thất,Xa xỉ
+586,Áo khoác Nike màu navy,35,2.515.000đ,Thời trang,Xa xỉ
+587,Mũ MLB size S,256,306.000đ,Thời trang,Tầm trung
+588,Gạo Gạo ST25 thùng 24 lon,498,104.000đ,Thực phẩm,Tầm trung
+589,Máy ảnh Canon EOS Series 32,271,23.463.000đ,Điện tử,Xa xỉ
+590,Bàn phím cơ Razer BlackWidow Series 200,410,815.000đ,Điện tử,Cao cấp
+591,Gia vị Maggi thùng 24 lon,83,50.000đ,Thực phẩm,Bình dân
+592,Áo khoác Adidas màu navy,384,2.599.000đ,Thời trang,Xa xỉ
+593,Giày cao gót Charles & Keith size L,327,1.147.000đ,Thời trang,Cao cấp
+594,Găng tay boxing Twins size 42,276,354.000đ,Thể thao,Tầm trung
+595,Bàn phím cơ Logitech MX Keys Plus 200,94,1.462.000đ,Điện tử,Cao cấp
+596,Áo thể thao Puma Dry Cell size 44,188,495.000đ,Thể thao,Tầm trung
+597,Sách lập trình You Don't Know JS (Tái Bản),425,115.000đ,Sách,Tầm trung
+598,Máy tính bảng Lenovo Tab Ultra 100,358,3.840.000đ,Điện tử,Xa xỉ
+599,Loa Bluetooth Bose SoundLink Series 250,286,1.760.000đ,Điện tử,Cao cấp
+600,Giày chạy bộ Adidas Ultraboost size 40,182,2.408.000đ,Thể thao,Xa xỉ

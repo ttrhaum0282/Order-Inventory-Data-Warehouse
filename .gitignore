@@ -8,3 +8,4 @@ __pycache__/
 google_cloud_key.json
 pipeline_*
 *.log
+logs/query_log.sql

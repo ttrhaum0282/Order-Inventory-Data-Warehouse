@@ -31,7 +31,7 @@ _NU = {
 }
 
 def vn_name(gender: str = None) -> tuple:
-    """Sinh tên Việt đúng chuẩn. Trả về (full_name, gender)"""
+    #Sinh tên Việt đúng chuẩn. Trả về (full_name, gender)
     if gender is None:
         gender = random.choice(['M', 'F'])
     ho   = random.choice(_HO)
@@ -46,11 +46,11 @@ def name_to_email(full_name: str, uid: int, domain: str = "example.com") -> str:
     
     nfkd = unicodedata.normalize("NFKD", full_name)
     ascii_name = nfkd.encode("ascii", "ignore").decode("ascii").lower()
-    parts = ascii_name.split()          # ['nguyen', 'van', 'toan']
-    ho    = parts[0]                    # nguyen
-    dem   = parts[1] if len(parts) > 2 else ""   # van
-    ten   = parts[-1]                   # toan
-    birth = random.randint(1990, 2005)
+    parts = ascii_name.split()          # ['trinh', 'thu', 'tram']
+    ho    = parts[0]                    # trinh
+    dem   = parts[1] if len(parts) > 2 else ""   # thu
+    ten   = parts[-1]                   # tram
+    birth = random.randint(1970, 2005)
 
     style = random.randint(1, 4) # ở đây chỉ tạo cấu trúc mail phổ biến
     if style == 1:
@@ -122,7 +122,7 @@ CONN_STR = (
 
 N_SUPPLIERS = 500
 N_CUSTOMERS = 800
-N_PRODUCTS = 500
+N_PRODUCTS = 600
 N_ORDERS = 3000
 N_ORDER_DETAILS = 4800
 
@@ -173,12 +173,27 @@ def insert_df(conn, table: str, df: pd.DataFrame):
 
 # GENERATING DATA
 # 1. Suppliers
+_LOAI_CT = [
+    "Công ty Cổ phần", "Công ty TNHH", "Công ty TNHH MTV",
+    "Công ty Hợp danh", "Tập Đoàn",
+]
+_TEN_CT = [
+    "Phát Đạt", "Thành Công", "Tiến Bộ", "Minh Châu", "Đại Việt",
+    "Hòa Bình", "Thịnh Vượng", "Toàn Cầu", "Bình Minh", "Kim Long",
+    "Vạn Lợi", "Sơn Hà", "Ánh Dương", "Trường Thịnh", "Đông Nam",
+]
+
+def vn_company() -> str:
+    loai = random.choice(_LOAI_CT)
+    ten = random.choice(_TEN_CT)
+    return f"{loai} {ten}"
+
 def gen_suppliers(n: int) -> pd.DataFrame:
     rows = []
     for i in range(1, n + 1):
         rows.append({
             "SupplierID": i,
-            "SupplierName": fake.company(),
+            "SupplierName": vn_company(),
             "Phone": fake.phone_number()[:20],
             "Address": vn_address()[:200],
         })
@@ -189,29 +204,220 @@ def gen_suppliers(n: int) -> pd.DataFrame:
 def gen_customers(n: int) -> pd.DataFrame:
     rows = []
     for i in range(1, n + 1):
-        name, _gender = vn_name()                       # FIX 1: tên đúng chuẩn, tách nam/nữ
+        name, _gender = vn_name()                      
         rows.append({
             "CustomerID":   i,
             "CustomerName": name,
             "Phone":        fake.phone_number()[:20],
-            "Email":        name_to_email(name, i),        # FIX 2: email thực tế từ tên
+            "Email":        name_to_email(name, i),       
             "Address":      vn_address()[:200],
         })
     return pd.DataFrame(rows)
 
 
 # 3. Products (cần supplier_ids)
-CATEGORIES = ["Electronics", "Clothing", "Food", "Furniture", "Books", "Sports"]
+CATEGORIES = ["Điện tử", "Thời trang", "Thực phẩm", "Nội thất", "Sách", "Thể thao"]
+
+_PRODUCT_NAMES = {
+    "Điện tử": [
+        ("Điện thoại", ["Samsung Galaxy", "iPhone", "Xiaomi Redmi", "OPPO Reno", "Vivo V", "Realme C", "Nokia G"]),
+        ("Laptop", ["Dell Inspiron", "HP Pavilion", "Asus VivoBook", "Lenovo Thinkpad", "Acer Aspire", "MacBook Air"]),
+        ("Tai nghe", ["Sony WH", "JBL Tune", "Samsung Galaxy Buds", "Apple AirPods", "Anker Soundcore"]),
+        ("Máy tính bảng", ["iPad", "Samsung Galaxy Tab", "Xiaomi Pad", "Lenovo Tab"]),
+        ("Smartwatch", ["Apple Watch", "Samsung Galaxy Watch", "Garmin Forerunner", "Xiaomi Smart Band"]),
+        ("Loa Bluetooth", ["JBL Charge", "Bose SoundLink", "Sony SRS", "Marshall Emberton"]),
+        ("Máy ảnh", ["Canon EOS", "Sony Alpha", "Nikon D", "Fujifilm X"]),
+        ("Màn hình", ["LG UltraWide", "Samsung Odyssey", "Dell UltraSharp", "Asus ProArt"]),
+        ("Bàn phím cơ", ["Keychron K", "Logitech MX Keys", "Corsair K", "Razer BlackWidow"]),
+        ("Chuột gaming", ["Logitech G", "Razer DeathAdder", "SteelSeries Rival", "Zowie EC"]),
+    ],
+    "Thời trang": [
+        ("Áo thun", ["Uniqlo", "Routine", "Owen", "Canifa", "Jules"]),
+        ("Quần jean", ["Levi's", "Wrangler", "G-Star Raw", "Routine", "MOA"]),
+        ("Áo khoác", ["The North Face", "Columbia", "Adidas", "Nike", "Puma"]),
+        ("Váy", ["Zara", "H&M", "Mango", "Ivy Moda", "Elise"]),
+        ("Giày sneaker", ["Nike Air Max", "Adidas Stan Smith", "New Balance 574", "Converse Chuck Taylor", "Vans Old Skool"]),
+        ("Giày cao gót", ["Nine West", "Steve Madden", "Aldo", "Charles & Keith"]),
+        ("Túi xách", ["Michael Kors", "Chanel", "Tumi", "Kipling", "Furla"]),
+        ("Mũ", ["New Era", "Dickies", "Vans", "MLB", "Adidas"]),
+        ("Đồng hồ thời trang", ["Daniel Wellington", "MVMT", "Fossil", "Seiko Presage"]),
+        ("Kính mắt", ["Ray-Ban", "Oakley", "Gucci", "Gentle Monster"]),
+    ],
+    "Thực phẩm": [
+        ("Cà phê", ["Highlands Coffee", "Trung Nguyên Legend", "G7", "Nescafé", "Vinacafé"]),
+        ("Trà", ["Lipton", "Dilmah", "Trà Thái Nguyên", "Cozy", "Phúc Long"]),
+        ("Mì ăn liền", ["Hảo Hảo", "Kokomi", "Omachi", "3 Miền", "Vifon", "Indomie"]),
+        ("Bánh kẹo", ["Kinh Đô", "Bibica", "Oreo", "Pocky", "Choco Pie"]),
+        ("Dầu ăn", ["Neptune", "Tường An", "Simply", "Meizan"]),
+        ("Nước mắm", ["Chin-su", "Phú Quốc", "Nam Ngư"]),
+        ("Sữa", ["TH True Milk", "Vinamilk", "Dutch Lady", "Mộc Châu"]),
+        ("Gạo", ["Gạo ST25", "Jasmine", "Nàng Hoa", "Bắc Hương"]),
+        ("Gia vị", ["Maggi", "Knorr", "Ajinomoto", "Cholimex"]),
+        ("Snack", ["Oishi", "Poca", "Doritos", "Lays"]),
+    ],
+    "Nội thất": [
+        ("Sofa", ["IKEA KIVIK", "Hòa Phát", "Nội thất Xanh", "JYSK", "Ashley"]),
+        ("Bàn làm việc", ["IKEA LINNMON", "Hòa Phát", "Herman Miller", "Flexispot"]),
+        ("Ghế văn phòng", ["Herman Miller Aeron", "Secretlab", "Ergohuman", "Hòa Phát HCG"]),
+        ("Giường ngủ", ["IKEA MALM", "Kim Tiền", "Nội thất An Lành", "JYSK Maribo"]),
+        ("Tủ quần áo", ["IKEA PAX", "Hòa Phát", "Xuân Hòa", "JYSK"]),
+        ("Kệ sách", ["IKEA KALLAX", "Hòa Phát", "Nội thất Duy Phát"]),
+        ("Đèn bàn", ["Philips", "IKEA FORSÅ", "Baseus", "Xiaomi MIJIA"]),
+        ("Gương", ["IKEA HEMNES", "La Redoute", "Nội thất Việt"]),
+        ("Thảm trải sàn", ["IKEA ÅDUM", "Carpet One", "Hòa Bình"]),
+        ("Rèm cửa", ["IKEA MERETE", "JYSK", "Vải Thành Công"]),
+    ],
+    "Sách": [
+        ("Tiểu thuyết", ["Nhà Giả Kim", "Đắc Nhân Tâm", "Sapiens", "Tôi Thấy Hoa Vàng Trên Cỏ Xanh", "Mắt Biếc"]),
+        ("Sách kỹ năng", ["7 Thói Quen Hiệu Quả", "Mindset", "Atomic Habits", "Dám Bị Ghét", "Ikigai"]),
+        ("Sách kinh tế", ["Cha Giàu Cha Nghèo", "Nghĩ Giàu Làm Giàu", "Đầu Tư Thông Minh"]),
+        ("Sách lập trình", ["Clean Code", "Python Crash Course", "You Don't Know JS", "Eloquent JavaScript"]),
+        ("Sách thiếu nhi", ["Doraemon", "Shin Cậu Bé Bút Chì", "Harry Potter", "Cô Bé Quàng Khăn Đỏ"]),
+        ("Sách lịch sử", ["Việt Nam Sử Lược", "Lịch Sử Thế Giới", "Sapiens", "Homo Deus"]),
+        ("Sách tâm lý", ["Tâm Lý Học Đám Đông", "Nghệ Thuật Tinh Tế", "Người Đàn Ông Tìm Kiếm Ý Nghĩa"]),
+        ("Từ điển", ["Oxford Advanced", "Longman Dictionary", "Lạc Việt Anh-Việt"]),
+        ("Sách giáo khoa", ["Toán 12", "Vật Lý 11", "Hóa Học 10", "Ngữ Văn 9", "Tiếng Anh 12"]),
+        ("Sách nấu ăn", ["Bếp Của Mẹ", "Món Ngon Mỗi Ngày", "Ẩm Thực 3 Miền"]),
+    ],
+    "Thể thao": [
+        ("Giày chạy bộ", ["Nike Air Zoom Pegasus", "Adidas Ultraboost", "Asics Gel-Kayano", "Brooks Ghost"]),
+        ("Bóng đá", ["Adidas Tango", "Nike Flight", "Mikasa", "Molten"]),
+        ("Vợt cầu lông", ["Yonex Astrox", "Victor Thruster", "Li-Ning Turbo", "Kawasaki"]),
+        ("Vợt tennis", ["Wilson Blade", "Babolat Pure Drive", "Head Gravity", "Yonex EZONE"]),
+        ("Dây nhảy", ["Jumping Pro", "Adidas", "Nike", "Everlast"]),
+        ("Găng tay boxing", ["Everlast", "Hayabusa", "Fairtex", "Twins"]),
+        ("Xe đạp", ["Giant ATX", "Trek Marlin", "Specialized Rockhopper", "Asama"]),
+        ("Dụng cụ yoga", ["Manduka PRO", "Liforme", "Gaiam", "Adidas"]),
+        ("Tạ tay", ["Bowflex", "Xiaomi", "PowerBlock", "CAP Barbell"]),
+        ("Áo thể thao", ["Nike Dri-FIT", "Adidas Climacool", "Under Armour", "Puma Dry Cell"]),
+    ],
+}
+
+_SUFFIX = {
+    "Điện tử":    ["Series {}", "Pro {}", "Ultra {}", "Plus {}", "{}i", "{}X"],
+    "Thời trang": ["size S", "size M", "size L", "size XL", "màu đen", "màu trắng", "màu navy"],
+    "Thực phẩm":  ["500g", "1kg", "250ml", "500ml", "1 lít", "hộp 24 gói", "túi 2kg", "thùng 24 lon", "200g", "lốc 4 hộp"],
+    "Nội thất":   ["màu walnut", "màu trắng sữa", "màu oak", "màu đen mờ", "bộ 2 cái", "bộ 4 cái"],
+    "Sách":       ["(Bìa Cứng)", "(Tái Bản)", "(Bìa Mềm)", "- Ấn Bản Đặc Biệt", "Tập 1", "Tập 2", "Tập 3"],
+    "Thể thao":   ["size 38", "size 40", "size 42", "size 44", "màu đen/đỏ", "màu xanh/trắng", "màu đen/vàng"],
+}
+
+def _random_suffix(category: str) -> str:
+    tpl = random.choice(_SUFFIX[category])
+    if '{}' in tpl:
+        parts = tpl.split('{}')
+        filled = parts[0]
+        for p in parts[1:]:
+            num = random.choice([8, 16, 32, 64, 100, 200, 250, 500])
+            filled += str(num) + p
+        return filled
+    return tpl
+
+def vn_product_name(category: str) -> str:
+    type_name, brands = random.choice(_PRODUCT_NAMES[category])
+    brand = random.choice(brands)
+    suffix = _random_suffix(category)
+    return f"{type_name} {brand} {suffix}"[:85]
+
+# Tạo giá phù hợp cho từng phân khúc sản phẩm
+_PRICE_RANGE = {
+    "Điện tử": {
+        "Điện thoại":    (2_000_000,  35_000_000),
+        "Laptop":        (8_000_000,  60_000_000),
+        "Tai nghe":        (200_000,   5_000_000),
+        "Máy tính bảng": (3_000_000,  25_000_000),
+        "Smartwatch":    (1_000_000,  15_000_000),
+        "Loa Bluetooth":   (300_000,   5_000_000),
+        "Máy ảnh":       (5_000_000,  60_000_000),
+        "Màn hình":      (2_000_000,  20_000_000),
+        "Bàn phím cơ":     (500_000,   5_000_000),
+        "Chuột gaming":    (200_000,   3_000_000),
+    },
+    "Thời trang": {
+        "Áo thun":           (100_000,   800_000),
+        "Quần jean":         (200_000, 2_000_000),
+        "Áo khoác":          (300_000, 3_000_000),
+        "Váy":               (150_000, 1_500_000),
+        "Giày sneaker":      (300_000, 4_000_000),
+        "Giày cao gót":      (250_000, 3_000_000),
+        "Túi xách":          (200_000,20_000_000),
+        "Mũ":                 (80_000,   500_000),
+        "Đồng hồ thời trang":(500_000, 8_000_000),
+        "Kính mắt":          (200_000, 5_000_000),
+    },
+    "Thực phẩm": {
+        "Cà phê":    (50_000,   500_000),
+        "Trà":       (30_000,   300_000),
+        "Mì ăn liền":(5_000,    80_000),
+        "Bánh kẹo":  (15_000,   200_000),
+        "Dầu ăn":    (30_000,   150_000),
+        "Nước mắm":  (20_000,   120_000),
+        "Sữa":       (25_000,   500_000),
+        "Gạo":       (20_000,   200_000),
+        "Gia vị":    (10_000,   100_000),
+        "Snack":     (10_000,    80_000),
+    },
+    "Nội thất": {
+        "Sofa":           (3_000_000, 30_000_000),
+        "Bàn làm việc":   (1_000_000, 15_000_000),
+        "Ghế văn phòng":  (1_500_000, 25_000_000),
+        "Giường ngủ":     (2_000_000, 20_000_000),
+        "Tủ quần áo":     (1_500_000, 15_000_000),
+        "Kệ sách":          (500_000,  5_000_000),
+        "Đèn bàn":          (150_000,  1_500_000),
+        "Gương":            (200_000,  3_000_000),
+        "Thảm trải sàn":    (300_000,  5_000_000),
+        "Rèm cửa":          (200_000,  3_000_000),
+    },
+    "Sách": {
+        "Tiểu thuyết":   (50_000,  300_000),
+        "Sách kỹ năng":  (60_000,  300_000),
+        "Sách kinh tế":  (60_000,  280_000),
+        "Sách lập trình":(80_000,  400_000),
+        "Sách thiếu nhi":(30_000,  150_000),
+        "Sách lịch sử":  (50_000,  250_000),
+        "Sách tâm lý":   (55_000,  270_000),
+        "Từ điển":      (100_000,  500_000),
+        "Sách giáo khoa":(25_000,  120_000),
+        "Sách nấu ăn":   (60_000,  250_000),
+    },
+    "Thể thao": {
+        "Giày chạy bộ":    (800_000,  5_000_000),
+        "Bóng đá":         (100_000,    800_000),
+        "Vợt cầu lông":    (300_000,  5_000_000),
+        "Vợt tennis":      (500_000,  8_000_000),
+        "Dây nhảy":         (50_000,    300_000),
+        "Găng tay boxing": (200_000,  2_000_000),
+        "Xe đạp":        (2_000_000, 25_000_000),
+        "Dụng cụ yoga":    (150_000,  1_500_000),
+        "Tạ tay":          (100_000,  3_000_000),
+        "Áo thể thao":     (150_000,  1_000_000),
+    },
+}
+
+def _price_for(category: str, product_name: str) -> float:
+    ranges = _PRICE_RANGE.get(category, {})
+    for type_name, (lo, hi) in ranges.items():
+        if product_name.startswith(type_name):
+            return int(round(random.uniform(lo, hi), -3))
+    # fallback: lấy min/max của toàn danh mục
+    if ranges:
+        lo = min(v[0] for v in ranges.values())
+        hi = max(v[1] for v in ranges.values())
+        return int(round(random.uniform(lo, hi), -3))
+    return int(round(random.uniform(100_000, 5_000_000), -3))
 
 def gen_products(n: int, supplier_ids: list) -> pd.DataFrame:
     rows = []
     for i in range(1, n + 1):
+        cat  = random.choice(CATEGORIES)
+        name = vn_product_name(cat)
         rows.append({
-            "ProductID": i,
-            "ProductName": fake.bs().title()[:100],
-            "SupplierID": random.choice(supplier_ids),
-            "Price": round(random.uniform(10000, 5000000), 0),
-            "Category": random.choice(CATEGORIES),
+            "ProductID":   i,
+            "ProductName": name,
+            "SupplierID":  random.choice(supplier_ids),
+            "Price":       _price_for(cat, name),
+            "Category":    cat,
         })
     return pd.DataFrame(rows)
 
@@ -266,7 +472,7 @@ def gen_order_details(n: int, order_ids: list, products_df: pd.DataFrame):
     return pd.DataFrame(rows)
 
 
-# UPDATING TOTALAMOUNTS IN ORDER
+# Update TotalAmount in order
 def update_total_amount(conn, order_details_df: pd.DataFrame):
     totals = order_details_df.groupby("OrderID")["Price"].sum().reset_index()
     cursor = conn.cursor()
@@ -279,7 +485,7 @@ def update_total_amount(conn, order_details_df: pd.DataFrame):
     print(f"Updated TotalAmount for {len(totals)} orders")
 
 
-# Tạo file csv
+# Tạo file CSV
 def export_all(fmt: str = "csv"):
     engine = get_engine()
     tables = ["Suppliers", "Customers", "Products", "Inventory", "Orders", "OrderDetails"]
@@ -288,8 +494,21 @@ def export_all(fmt: str = "csv"):
     output_dir = os.path.join(base_dir, "output")
     os.makedirs(output_dir, exist_ok=True)
     
+    # Các cột tiền cần format dạng 1.000.000đ
+    price_cols = {
+        "Products":     ["Price"],
+        "Orders":       ["TotalAmount"],
+        "OrderDetails": ["Price"],
+    }
+
+    def fmt_price(x):
+        return f"{int(x):,}đ".replace(",", ".")
+
     for table in tables:
         df = pd.read_sql(f"SELECT * FROM {table}", engine)
+        for col in price_cols.get(table, []):
+            if col in df.columns:
+                df[col] = df[col].apply(fmt_price)
         if fmt == "csv":
             df.to_csv(os.path.join(output_dir, f"{table}.csv"), index=False, encoding="utf-8-sig")
         else:
@@ -297,7 +516,7 @@ def export_all(fmt: str = "csv"):
         print(f"Exported {table}.{fmt} ({len(df)} rows)")
 
 
-# RUNNING PIPELINE
+# Chạy File
 def main():
     print(f"\n[{datetime.now():%H:%M:%S}] Connecting SSMS...")
     conn = get_connection()
