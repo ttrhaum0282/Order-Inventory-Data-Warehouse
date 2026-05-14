@@ -1,0 +1,9 @@
+google_cloud_key.json
+etl/pipeline_20260514_152906.log
+etl/pipeline_20260512_171410.log
+
+
+__pycache__/
+*.pyc
+google_cloud_key.json
+pipeline_*

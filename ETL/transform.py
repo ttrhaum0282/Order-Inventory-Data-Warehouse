@@ -34,19 +34,26 @@ def transform_suppliers(df: pd.DataFrame) -> pd.DataFrame:
 # 2. Customers
 def transform_customers(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop_duplicates(subset=["CustomerID"])
-    df["CustomerName"] = df["CustomerName"].str.strip()  # bỏ .str.title() với tiếng Việt
+
+    # Chuẩn hóa tên: strip khoảng trắng thừa
+    df["CustomerName"] = df["CustomerName"].str.strip()
+
+    # Loại bỏ tên rỗng hoặc null
+    df = df[df["CustomerName"].notna() & (df["CustomerName"] != "")].copy()
+
     df["Email"] = df["Email"].str.lower().str.strip()
 
-    # Chuẩn hóa phone về dạng 0xxxxxxxxx 
+    # Chuẩn hóa phone về dạng 0xxxxxxxxx
     df["Phone"] = df["Phone"].str.replace(r"[\s\-\(\)]", "", regex=True)
     df["Phone"] = df["Phone"].str.replace(r"^\+84", "0", regex=True)
 
-    # Chuẩn hóa email
-    email_mask = df["Email"].str.contains(r"^[\w\.-]+@[\w\.-]+\.\w+$", regex=True)
+    # Validate email: chấp nhận cả dạng có/không có dấu chấm trước @
+    # VD: trinhtram2005@example.com  hoặc  trinh.tram@example.com
+    email_mask = df["Email"].str.contains(r"^[\w\.-]+@[\w\.-]+\.\w+$", regex=True, na=False)
     df = df[email_mask].copy()
 
-    # Chuẩn hóa số điện thoại (chỉ giữ số hợp lệ 10 chữ số bắt đầu bằng 0)
-    phone_mask = df["Phone"].str.match(r"^0\d{9}$")
+    # Chỉ giữ số điện thoại hợp lệ 10 chữ số bắt đầu bằng 0
+    phone_mask = df["Phone"].str.match(r"^0\d{9}$", na=False)
     df = df[phone_mask].copy()
 
     return df
