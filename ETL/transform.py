@@ -53,7 +53,7 @@ def transform_customers(df: pd.DataFrame) -> pd.DataFrame:
     df = df[email_mask].copy()
 
     # Chỉ giữ số điện thoại hợp lệ 10 chữ số bắt đầu bằng 0
-    phone_mask = df["Phone"].str.match(r"^0\d{9}$", na=False)
+    phone_mask = df["Phone"].str.match(r"^0\d{8,9}$", na=False)
     df = df[phone_mask].copy()
 
     return df
