@@ -57,8 +57,8 @@ def name_to_email(full_name: str, uid: int, domain: str = "example.com") -> str:
         # trinhtram2005@example.com  →  họ + tên + năm sinh
         local = f"{ho}{ten}{birth}"
     elif style == 2:
-        # ttram2005@example.com  →  chữ đầu họ + tên + năm sinh
-        local = f"{ho[0]}{ten}{birth}"
+        # tttram2005@example.com  →  chữ cái đầu họ + chữ cái đầu tên đệm + tên + năm sinh
+        local = f"{ho[0]}{dem[0]}{ten}{birth}"
     elif style == 3:
         # nguyenvantoan99@example.com  →  họ + tên đệm + tên + 2 số cuối năm
         local = f"{ho}{dem}{ten}{str(birth)[-2:]}"
