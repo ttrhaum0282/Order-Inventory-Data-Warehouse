@@ -120,11 +120,11 @@ CONN_STR = (
     f"Trusted_Connection=yes;"
 )
 
-N_SUPPLIERS = 500
-N_CUSTOMERS = 800
-N_PRODUCTS = 600
-N_ORDERS = 3000
-N_ORDER_DETAILS = 4800
+N_SUPPLIERS     = 500
+N_CUSTOMERS     = 10_000
+N_PRODUCTS      = 600
+N_ORDERS        = 200_000
+N_ORDER_DETAILS = 1_000_000
 
 
 def get_connection():
@@ -161,13 +161,15 @@ def truncate_all(conn):
     conn.commit()
     print("Truncated & reset identity all tables\n")
 
-def insert_df(conn, table: str, df: pd.DataFrame):
+def insert_df(conn, table: str, df: pd.DataFrame, batch_size: int = 10_000):
     cursor = conn.cursor()
     cols = ", ".join(df.columns)
     placeholders = ", ".join(["?"] * len(df.columns))
     sql = f"INSERT INTO {table} ({cols}) VALUES ({placeholders})"
-    cursor.executemany(sql, df.values.tolist())
-    conn.commit()
+    data = df.values.tolist()
+    for start in range(0, len(data), batch_size):
+        cursor.executemany(sql, data[start:start + batch_size])
+        conn.commit()
     print(f"Inserted {len(df)} rows -> {table}")
 
 
@@ -189,30 +191,25 @@ def vn_company() -> str:
     return f"{loai} {ten}"
 
 def gen_suppliers(n: int) -> pd.DataFrame:
-    rows = []
-    for i in range(1, n + 1):
-        rows.append({
-            "SupplierID": i,
-            "SupplierName": vn_company(),
-            "Phone": fake.phone_number()[:20],
-            "Address": vn_address()[:200],
-        })
-    return pd.DataFrame(rows)
+    return pd.DataFrame([{
+        "SupplierID":   i,
+        "SupplierName": vn_company(),
+        "Phone":        fake.phone_number()[:20],
+        "Address":      vn_address()[:200],
+    } for i in range(1, n + 1)])
 
 
 # 2. Customers  
 def gen_customers(n: int) -> pd.DataFrame:
-    rows = []
-    for i in range(1, n + 1):
-        name, _gender = vn_name()                      
-        rows.append({
-            "CustomerID":   i,
-            "CustomerName": name,
-            "Phone":        fake.phone_number()[:20],
-            "Email":        name_to_email(name, i),       
-            "Address":      vn_address()[:200],
-        })
-    return pd.DataFrame(rows)
+    import numpy as np
+    names_genders = [vn_name() for _ in range(n)]
+    return pd.DataFrame([{
+        "CustomerID":   i,
+        "CustomerName": name,
+        "Phone":        fake.phone_number()[:20],
+        "Email":        name_to_email(name, i),
+        "Address":      vn_address()[:200],
+    } for i, (name, _) in enumerate(names_genders, start=1)])
 
 
 # 3. Products (cần supplier_ids)
@@ -408,68 +405,70 @@ def _price_for(category: str, product_name: str) -> float:
     return int(round(random.uniform(100_000, 5_000_000), -3))
 
 def gen_products(n: int, supplier_ids: list) -> pd.DataFrame:
-    rows = []
-    for i in range(1, n + 1):
-        cat  = random.choice(CATEGORIES)
-        name = vn_product_name(cat)
-        rows.append({
-            "ProductID":   i,
-            "ProductName": name,
-            "SupplierID":  random.choice(supplier_ids),
-            "Price":       _price_for(cat, name),
-            "Category":    cat,
-        })
-    return pd.DataFrame(rows)
+    import numpy as np
+    cats  = [random.choice(CATEGORIES) for _ in range(n)]
+    names = [vn_product_name(c) for c in cats]
+    return pd.DataFrame({
+        "ProductID":   np.arange(1, n + 1),
+        "ProductName": names,
+        "SupplierID":  np.random.choice(supplier_ids, size=n),
+        "Price":       [_price_for(c, nm) for c, nm in zip(cats, names)],
+        "Category":    cats,
+    })
 
 
 # 4. Inventory (cần product_ids)
 def gen_inventory(n: int, product_ids: list) -> pd.DataFrame:
-    rows = []
-    for i, pid in enumerate(product_ids, start=1):
-        rows.append({
-            "InventoryID": i,
-            "ProductID": pid,
-            "QuantityInStock": random.randint(0, 500),
-            "LastUpdated": fake.date_time_between(
-                                start_date="-1y", end_date="now"
-                           ).strftime("%Y-%m-%d %H:%M:%S"),
-        })
-    return pd.DataFrame(rows)
+    import numpy as np
+    return pd.DataFrame({
+        "InventoryID":     np.arange(1, n + 1),
+        "ProductID":       product_ids,
+        "QuantityInStock": np.random.randint(0, 501, size=n),
+        "LastUpdated": [
+            fake.date_time_between(start_date="-1y", end_date="now").strftime("%Y-%m-%d %H:%M:%S")
+            for _ in range(n)
+        ],
+    })
 
 
 # 5. Orders (cần customer_ids)
 def gen_order(n: int, customer_ids: list) -> pd.DataFrame:
-    rows = []
+    import numpy as np
     start = datetime(2023, 1, 1)
-    for i in range(1, n + 1):
-        order_date = start + timedelta(days=random.randint(0, 730))
-        rows.append({
-            "OrderID": i,
-            "CustomerID": random.choice(customer_ids),
-            "OrderDate": order_date.strftime("%Y-%m-%d"),
-            "TotalAmount": 0
-        })
-    return pd.DataFrame(rows)
+    offsets = np.random.randint(0, 730, size=n)
+    dates   = [(start + timedelta(days=int(d))).strftime("%Y-%m-%d") for d in offsets]
+    return pd.DataFrame({
+        "OrderID":     np.arange(1, n + 1),
+        "CustomerID":  np.random.choice(customer_ids, size=n),
+        "OrderDate":   dates,
+        "TotalAmount": 0,
+    })
 
 
 # 6. OrderDetails (cần product_ids, order_ids, products dataframe để lấy giá)
 def gen_order_details(n: int, order_ids: list, products_df: pd.DataFrame):
-    rows = []
-    price_map = dict(zip(products_df['ProductID'], products_df["Price"]))
+    import numpy as np
 
-    for i in range(1, n + 1):
-        pid = random.choice(products_df['ProductID'].tolist())
-        qty = random.randint(1, 20)
-        unit_price = price_map[pid]
+    product_ids  = products_df["ProductID"].to_numpy()
+    prices       = products_df["Price"].to_numpy(dtype=float)
 
-        rows.append({
-            "OrderDetailID": i,
-            "OrderID": random.choice(order_ids),
-            "ProductID": pid,
-            "Quantity": qty,
-            "Price": round(unit_price * qty, 0),
-        })
-    return pd.DataFrame(rows)
+    # Vectorized random sampling
+    rand_product_idx = np.random.randint(0, len(product_ids), size=n)
+    rand_order_idx   = np.random.randint(0, len(order_ids),   size=n)
+    quantities       = np.random.randint(1, 21,               size=n)
+
+    chosen_products = product_ids[rand_product_idx]
+    chosen_orders   = np.array(order_ids)[rand_order_idx]
+    chosen_prices   = prices[rand_product_idx]
+    total_prices    = np.round(chosen_prices * quantities, 0).astype(int)
+
+    return pd.DataFrame({
+        "OrderDetailID": np.arange(1, n + 1),
+        "OrderID":       chosen_orders,
+        "ProductID":     chosen_products,
+        "Quantity":      quantities,
+        "Price":         total_prices,
+    })
 
 
 # Update TotalAmount in order
