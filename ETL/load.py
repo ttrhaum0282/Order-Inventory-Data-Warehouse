@@ -1,184 +1,163 @@
 import pandas as pd
-import pyodbc
 import os
 from datetime import datetime
+from google.cloud import bigquery
+from google.oauth2 import service_account
 
-INPUT_DIR = "transformed"
+# Cấu hình để load file CSV trên Google Cloud
+PROJECT_ID   = "ttcs-project"
+DATASET_ID   = "order_inventory"
+KEY_PATH     = "google_cloud_key.json"          
+INPUT_DIR    = "transformed"                     # output của transform.py
 
-# Load vào Database
-TARGET_SERVER   = "localhost"
-TARGET_DATABASE = "Order_Inventory"
-
-CONN_STR = (
-    f"DRIVER={{ODBC Driver 17 for SQL Server}};"
-    f"SERVER={TARGET_SERVER};"
-    f"DATABASE={TARGET_DATABASE};"
-    f"Trusted_Connection=yes;"
-)
-
-
-def get_connection():
-    return pyodbc.connect(CONN_STR)
+def get_bq_client() -> bigquery.Client:
+    creds = service_account.Credentials.from_service_account_file(
+        KEY_PATH,
+        scopes=["https://www.googleapis.com/auth/cloud-platform"],
+    )
+    return bigquery.Client(project=PROJECT_ID, credentials=creds)
 
 
-def load_csv(name: str) -> pd.DataFrame:
-    path = os.path.join(INPUT_DIR, f"{name}.csv")
+def load_csv(table: str) -> pd.DataFrame:
+    path = os.path.join(INPUT_DIR, f"{table}.csv")
     return pd.read_csv(path, encoding="utf-8-sig")
 
 
-# Map FK cần kiểm tra trước khi insert
-FK_MAP = {
-    "Orders":       [("CustomerID",    "Customers",    "CustomerID"),
-                     ("SupplierID",    "Suppliers",    "SupplierID")],
-    "OrderDetails": [("OrderID",       "Orders",       "OrderID"),
-                     ("ProductID",     "Products",     "ProductID")],
-    "Inventory":    [("ProductID",     "Products",     "ProductID")],
-    "SalesSummary": [("OrderDetailID", "OrderDetails", "OrderDetailID")],
+# Schema BigQuery cho từng bảng
+# Chỉ khai báo các cột cần ép kiểu đặc biệt
+
+SCHEMAS: dict[str, list[bigquery.SchemaField]] = {
+    "Suppliers": [
+        bigquery.SchemaField("SupplierID",   "INTEGER"),
+        bigquery.SchemaField("SupplierName", "STRING"),
+        bigquery.SchemaField("Phone",        "STRING"),
+        bigquery.SchemaField("Address",      "STRING"),
+    ],
+    "Customers": [
+        bigquery.SchemaField("CustomerID",   "INTEGER"),
+        bigquery.SchemaField("CustomerName", "STRING"),
+        bigquery.SchemaField("Phone",        "STRING"),
+        bigquery.SchemaField("Email",        "STRING"),
+        bigquery.SchemaField("Address",      "STRING"),
+    ],
+    "Products": [
+        bigquery.SchemaField("ProductID",    "INTEGER"),
+        bigquery.SchemaField("ProductName",  "STRING"),
+        bigquery.SchemaField("SupplierID",   "INTEGER"),
+        bigquery.SchemaField("Price",        "STRING"),
+        bigquery.SchemaField("Category",     "STRING"),
+        bigquery.SchemaField("PriceSegment", "STRING"),
+    ],
+    "Inventory": [
+        bigquery.SchemaField("InventoryID",      "INTEGER"),
+        bigquery.SchemaField("ProductID",        "INTEGER"),
+        bigquery.SchemaField("QuantityInStock",  "INTEGER"),
+        bigquery.SchemaField("LastUpdated",      "TIMESTAMP"),
+        bigquery.SchemaField("StockStatus",      "STRING"),
+    ],
+    "Orders": [
+        bigquery.SchemaField("OrderID",      "INTEGER"),
+        bigquery.SchemaField("CustomerID",   "INTEGER"),
+        bigquery.SchemaField("OrderDate",    "DATE"),
+        bigquery.SchemaField("TotalAmount",  "INTEGER"),
+        bigquery.SchemaField("OrderYear",    "INTEGER"),
+        bigquery.SchemaField("OrderMonth",   "INTEGER"),
+        bigquery.SchemaField("OrderQuarter", "INTEGER"),
+        bigquery.SchemaField("OrderWeekday", "STRING"),
+    ],
+    "OrderDetails": [
+        bigquery.SchemaField("OrderDetailID", "INTEGER"),
+        bigquery.SchemaField("OrderID",       "INTEGER"),
+        bigquery.SchemaField("ProductID",     "INTEGER"),
+        bigquery.SchemaField("Quantity",      "INTEGER"),
+        bigquery.SchemaField("Price",         "STRING"),
+        bigquery.SchemaField("UnitPrice",     "STRING"),
+    ],
+    "SalesSummary": [
+        bigquery.SchemaField("OrderDetailID", "INTEGER"),
+        bigquery.SchemaField("OrderID",       "INTEGER"),
+        bigquery.SchemaField("ProductID",     "INTEGER"),
+        bigquery.SchemaField("Quantity",      "INTEGER"),
+        bigquery.SchemaField("Price",         "STRING"),
+        bigquery.SchemaField("UnitPrice",     "STRING"),
+        bigquery.SchemaField("CustomerID",    "INTEGER"),
+        bigquery.SchemaField("OrderDate",     "DATE"),
+        bigquery.SchemaField("OrderYear",     "INTEGER"),
+        bigquery.SchemaField("OrderMonth",    "INTEGER"),
+        bigquery.SchemaField("OrderQuarter",  "INTEGER"),
+        bigquery.SchemaField("ProductName",   "STRING"),
+        bigquery.SchemaField("Category",      "STRING"),
+        bigquery.SchemaField("CustomerName",  "STRING"),
+    ],
 }
 
 
-def filter_fk(conn, table: str, df: pd.DataFrame) -> pd.DataFrame:
-    # Lọc bỏ các dòng vi phạm FK để tránh IntegrityError.
-    rules = FK_MAP.get(table, [])
-    for fk_col, ref_table, ref_col in rules:
-        if fk_col not in df.columns:
-            continue
-        cursor = conn.cursor()
-        cursor.execute(f"SELECT {ref_col} FROM {ref_table}")
-        valid_ids = {row[0] for row in cursor.fetchall()}
-        before = len(df)
-        df = df[df[fk_col].isin(valid_ids)]
-        dropped = before - len(df)
-        if dropped:
-            print(f"  [FK] Bỏ {dropped} dòng vi phạm {fk_col} → {ref_table}")
+# Chuẩn bị DataFrame trước khi push (ép kiểu khớp với schema)
+def prepare_df(df: pd.DataFrame, table: str) -> pd.DataFrame:
+    df = df.copy()
+
+    # STRING columns bị pandas đọc nhầm sang số
+    for col in ["Email", "Address", "SupplierName", "CustomerName"]:
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip()
+
+    # Phone: pad số 0 đầu bị mất khi pandas cast sang int64
+    if "Phone" in df.columns:
+        df["Phone"] = df["Phone"].astype(str).str.strip().str.zfill(10)
+
+    # DATE columns
+    date_cols = {"Orders": ["OrderDate"], "SalesSummary": ["OrderDate"]}
+    for col in date_cols.get(table, []):
+        if col in df.columns:
+            df[col] = pd.to_datetime(df[col], errors="coerce").dt.date
+
+    # TIMESTAMP columns
+    if table == "Inventory" and "LastUpdated" in df.columns:
+        df["LastUpdated"] = pd.to_datetime(df["LastUpdated"], errors="coerce")
+
+    # Categorical → string (PriceSegment, StockStatus)
+    for col in df.select_dtypes(include="category").columns:
+        df[col] = df[col].astype(str)
+
     return df
 
 
-# Update
-def bulk_insert(conn, table: str, df: pd.DataFrame, chunk_size: int = 500):
-    cursor = conn.cursor()
+def push_to_bq(client: bigquery.Client, df: pd.DataFrame, table: str):
+    table_ref = f"{PROJECT_ID}.{DATASET_ID}.{table}"
+    schema    = SCHEMAS.get(table, [])
 
-    # Lấy danh sách cột thực tế trong bảng DB
-    cursor.execute("""
-        SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS
-        WHERE TABLE_NAME = ?
-    """, table)
-    db_cols = [row[0] for row in cursor.fetchall()]
+    job_config = bigquery.LoadJobConfig(
+        schema=schema,
+        write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,  # overwrite mỗi lần chạy
+    )
 
-    if not db_cols:
-        print(f"Bảng '{table}' không tồn tại trong DB, bỏ qua.")
-        return
+    job = client.load_table_from_dataframe(df, table_ref, job_config=job_config)
+    job.result()  # chờ job xong
 
-    # Chỉ giữ lại cột có trong cả DataFrame lẫn DB
-    valid_cols = [c for c in df.columns if c in db_cols]
-    dropped    = [c for c in df.columns if c not in db_cols]
-    if dropped:
-        print(f"Bỏ qua cột không có trong DB: {dropped}")
+    loaded = client.get_table(table_ref).num_rows
+    print(f"{table:<15} {loaded:>6} rows → {table_ref}")
 
-    if not valid_cols:
-        print(f"Không có cột nào khớp với DB cho bảng '{table}'.")
-        print(f"Cột trong CSV : {list(df.columns)}")
-        print(f"Cột trong DB  : {db_cols}")
-        return
-
-    df = df[valid_cols]
-
-    # Kiểm tra bảng có cột identity không
-    cursor.execute("""
-        SELECT COUNT(*) FROM sys.columns
-        WHERE object_id = OBJECT_ID(?) AND is_identity = 1
-    """, table)
-    has_identity = cursor.fetchone()[0] > 0
-
-    cols         = ", ".join(df.columns)
-    placeholders = ", ".join(["?"] * len(df.columns))
-    sql          = f"INSERT INTO {table} ({cols}) VALUES ({placeholders})"
-
-    if has_identity:
-        cursor.execute(f"SET IDENTITY_INSERT {table} ON")
-
-    total = 0
-    for i in range(0, len(df), chunk_size):
-        chunk = df.iloc[i : i + chunk_size]
-        cursor.executemany(sql, chunk.values.tolist())
-        conn.commit()
-        total += len(chunk)
-
-    if has_identity:
-        cursor.execute(f"SET IDENTITY_INSERT {table} OFF")
-        conn.commit()
-
-    print(f"  Loaded {total} rows → {table}")
-
-
-def upsert_merge(conn, table: str, df: pd.DataFrame, key_col: str):
-    cursor = conn.cursor()
-    tmp    = f"#tmp_{table}"
-
-    # Tạo bảng tạm
-    cols         = ", ".join(df.columns)
-    placeholders = ", ".join(["?"] * len(df.columns))
-    col_defs     = ", ".join([f"{c} NVARCHAR(MAX)" for c in df.columns])
-
-    cursor.execute(f"IF OBJECT_ID('tempdb..{tmp}') IS NOT NULL DROP TABLE {tmp}")
-    cursor.execute(f"CREATE TABLE {tmp} ({col_defs})")
-    cursor.executemany(f"INSERT INTO {tmp} ({cols}) VALUES ({placeholders})",
-                       df.values.tolist())
-
-    # Tạo SET clause (tất cả cột trừ key)
-    non_keys  = [c for c in df.columns if c != key_col]
-    set_clause = ", ".join([f"T.{c} = S.{c}" for c in non_keys])
-    ins_cols   = ", ".join(df.columns)
-    ins_vals   = ", ".join([f"S.{c}" for c in df.columns])
-
-    merge_sql = f"""
-        MERGE {table} AS T
-        USING {tmp}   AS S ON T.{key_col} = S.{key_col}
-        WHEN MATCHED     THEN UPDATE SET {set_clause}
-        WHEN NOT MATCHED THEN INSERT ({ins_cols}) VALUES ({ins_vals});
-    """
-    cursor.execute(merge_sql)
-    conn.commit()
-    print(f"  Upserted → {table}")
-
-
-# Thứ tự load phải đúng FK 
-LOAD_ORDER = [
-    ("Suppliers",    "SupplierID"),
-    ("Customers",    "CustomerID"),
-    ("Products",     "ProductID"),
-    ("Inventory",    "InventoryID"),
-    ("Orders",       "OrderID"),
-    ("OrderDetails", "OrderDetailID"),
-    ("SalesSummary", "OrderDetailID"),  # bảng fact, không có FK chặt
-]
-
-
-def truncate_all(conn):
-    cursor = conn.cursor()
-    for table in ["SalesSummary", "OrderDetails", "Orders", "Inventory", "Products", "Customers", "Suppliers"]:
-        try:
-            cursor.execute(f"DELETE FROM {table}")
-            conn.commit()
-            print(f"  Cleared {table}")
-        except:
-            conn.rollback()
 
 def main():
-    conn = get_connection()
-    print("Connected!\n")
-    
-    truncate_all(conn)  # Xóa hết trước, đúng thứ tự FK
-    
-    for table, key in LOAD_ORDER:
-        print(f"Loading {table}...")
-        df = load_csv(table)
-        for col in df.select_dtypes(include=["category"]).columns:
-            df[col] = df[col].astype(str)
-        df = filter_fk(conn, table, df)
-        bulk_insert(conn, table, df)  # bulk_insert giờ không cần DELETE nữa
+    print(f"\n[{datetime.now():%H:%M:%S}] Starting load to BigQuery...\n")
 
-    conn.close()
+    client = get_bq_client()
+    print(f"  Connected: {PROJECT_ID}.{DATASET_ID}\n")
+
+    tables = ["Suppliers", "Customers", "Products", "Inventory",
+              "Orders", "OrderDetails", "SalesSummary"]
+
+    for table in tables:
+        try:
+            df = load_csv(table)
+            df = prepare_df(df, table)
+            push_to_bq(client, df, table)
+        except FileNotFoundError:
+            print(f"{table}: file not found — chạy transform.py trước!")
+        except Exception as e:
+            print(f"{table}: {e}")
+
+    print(f"\n[{datetime.now():%H:%M:%S}] Load done.")
 
 
 if __name__ == "__main__":

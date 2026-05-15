@@ -49,7 +49,7 @@ def transform_customers(df: pd.DataFrame) -> pd.DataFrame:
     df["Phone"] = df["Phone"].str.replace(r"^\+84", "0", regex=True)
 
     # Validate email: chấp nhận cả dạng có/không có dấu chấm trước @
-    # VD: trinhtram2005@example.com  hoặc  trinh.tram@example.com
+    # VD: trinhtram2005@gmail.com  hoặc  trinh.tram@gmail.com
     email_mask = df["Email"].str.contains(r"^[\w\.-]+@[\w\.-]+\.\w+$", regex=True, na=False)
     df = df[email_mask].copy()
 

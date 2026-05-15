@@ -41,7 +41,7 @@ def vn_name(gender: str = None) -> tuple:
 
 
 # Sinh email thực tế từ tên 
-def name_to_email(full_name: str, uid: int, domain: str = "example.com") -> str:
+def name_to_email(full_name: str, uid: int, domain: str = "gmail.com") -> str:
     full_name = full_name.replace('Đ', 'D').replace('đ', 'd')
     
     nfkd = unicodedata.normalize("NFKD", full_name)
@@ -54,16 +54,16 @@ def name_to_email(full_name: str, uid: int, domain: str = "example.com") -> str:
 
     style = random.randint(1, 4) # ở đây chỉ tạo cấu trúc mail phổ biến
     if style == 1:
-        # trinhtram2005@example.com  →  họ + tên + năm sinh
+        # trinhtram2005@gmail.com  →  họ + tên + năm sinh
         local = f"{ho}{ten}{birth}"
     elif style == 2:
-        # tttram2005@example.com  →  chữ cái đầu họ + chữ cái đầu tên đệm + tên + năm sinh
+        # tttram2005@gmail.com  →  chữ cái đầu họ + chữ cái đầu tên đệm + tên + năm sinh
         local = f"{ho[0]}{dem[0]}{ten}{birth}"
     elif style == 3:
-        # nguyenvantoan99@example.com  →  họ + tên đệm + tên + 2 số cuối năm
+        # nguyenvantoan99@gmail.com  →  họ + tên đệm + tên + 2 số cuối năm
         local = f"{ho}{dem}{ten}{str(birth)[-2:]}"
     else:
-        # nvt2005@example.com  →  viết tắt chữ đầu + năm sinh
+        # nvt2005@gmail.com  →  viết tắt chữ đầu + năm sinh
         initials = ho[0] + (dem[0] if dem else "") + ten[0]
         local = f"{initials}{birth}"
 
@@ -200,7 +200,7 @@ def gen_suppliers(n: int) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-# 2. Customers  ── ÁP DỤNG 2 FIX Ở ĐÂY ──
+# 2. Customers  
 def gen_customers(n: int) -> pd.DataFrame:
     rows = []
     for i in range(1, n + 1):
