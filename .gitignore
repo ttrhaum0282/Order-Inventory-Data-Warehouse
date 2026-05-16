@@ -9,3 +9,11 @@ google_cloud_key.json
 pipeline_*
 *.log
 logs/query_log.sql
+*.csv
+
+src/output/Suppliers.csv
+src/output/Products.csv
+src/output/Orders.csv
+src/output/OrderDetails.csv
+src/output/Inventory.csv
+src/output/Customers.csv
