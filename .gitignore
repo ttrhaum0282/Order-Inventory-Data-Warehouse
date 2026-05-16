@@ -10,3 +10,5 @@ pipeline_*
 *.log
 logs/query_log.sql
 *.csv
+ETL/transformed/*.csv
+src/output/*.csv
